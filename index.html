@@ -33,7 +33,7 @@
             repeatCount="indefinite"
         />
 	</line>
-</svg></div></div></div></form><tw-storydata name="Cybersec D  &amp; D" startnode="1" creator="Twine" creator-version="2.7.0" format="Chapbook" format-version="1.2.3" ifid="67B5ACA6-4782-4159-B2F5-F22371E4ECA3" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#backdrop {
+</svg></div></div></div></form><tw-storydata name="Cybersec D  &amp; D" startnode="1" creator="Twine" creator-version="2.9.2" format="Chapbook" format-version="1.2.3" ifid="67B5ACA6-4782-4159-B2F5-F22371E4ECA3" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#backdrop {
    background-image: url("backdrop.jpg");
    background-repeat: no-repeat;
     background-attachment: scroll;
@@ -76,6 +76,7 @@ socialMod: 0
 infilMod: 0
 difficultyCheck: 8
 actionDifficulty: 1
+floor:1
 --
 
 # Cybersec D &amp; D 
@@ -122,7 +123,7 @@ Their goals are to obtain, and then release to the world hard evidence of their 
 
 Since the goal is to make it public, and the members of the collective are driven by ideology, they aren&#39;t afriad of being caught! 
 
-&gt;[[Red Team 2 The Total Hallibut Collective]]</tw-passagedata><tw-passagedata pid="3" name="Defend" tags="" position="2525,1250" size="100,100">{ambient sound: &#39;music&#39;}</tw-passagedata><tw-passagedata pid="4" name="Red Team 1 E-Pick Games" tags="" position="125,175" size="100,100">team:1
+&gt;[[Red Team 2 The Total Hallibut Collective]]</tw-passagedata><tw-passagedata pid="3" name="Defend" tags="" position="2325,100" size="100,100">{ambient sound: &#39;music&#39;}</tw-passagedata><tw-passagedata pid="4" name="Red Team 1 E-Pick Games" tags="" position="125,175" size="100,100">team:1
 --
 
 ## E-Pick Games It is time to hack.
@@ -232,7 +233,7 @@ Special - Access to Team Red
 - Infilitration -3
 - Special - Access to all Teams
 
-</tw-passagedata><tw-passagedata pid="6" name="E-Pick Games Attacks Blue Team" tags="" position="25,475" size="100,100">action: &#39;Unlocking Doors&#39;
+</tw-passagedata><tw-passagedata pid="6" name="E-Pick Games Attacks Blue Team" tags="" position="75,375" size="100,100">action: &#39;Unlocking Doors&#39;
 chosenOne:&#39;Anatoly Cherdenko&#39;
 attackType:&#39;Infiltration&#39;
 --
@@ -299,7 +300,7 @@ engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;)
 &gt;[[Attempt Your Hack]]
 &gt;[[Check Maps]]
 Or do you need to double check on your team skills again?
-&gt;[[Red Team 1 E-Pick Games]] </tw-passagedata><tw-passagedata pid="7" name="Attempt Your Hack" tags="" position="25,825" size="100,100">calcAttempt :0
+&gt;[[Red Team 1 E-Pick Games]] </tw-passagedata><tw-passagedata pid="7" name="Attempt Your Hack" tags="" position="175,650" size="100,100">calcAttempt :0
 --
 
 ### You Begin your Attack!
@@ -331,7 +332,7 @@ engine.state.set(&#39;difficultyCheck&#39;, 16);
 [continue]
 
 
-[if actionDifficulty === 18]
+[if actionDifficulty === 5]
 
 [JavaScript]
 engine.state.set(&#39;difficultyCheck&#39;, 20);
@@ -445,6 +446,7 @@ Your elected hacker {chosenOne} attempts {action}
 {embed image: &#39;succeed.jpg&#39;}
 
 ### You rolled a {calcAttempt} and you Succeeded in  {action}
+
 &gt;[[E-Pick Successfully Attacks]]
 
 [else]
@@ -455,27 +457,37 @@ Your elected hacker {chosenOne} attempts {action}
 
 ### You rolled a {calcAttempt} and Failed at  {action}
 
-&gt;[[E-Pick Fails in their Attack]]
+&gt;[[E-Pick Fails in their Attack]] 
 
 [continued]
 
-</tw-passagedata><tw-passagedata pid="8" name="E-Pick Games Escapes" tags="" position="775,425" size="100,100">### Your Hacking done. Here is how you did overall
+</tw-passagedata><tw-passagedata pid="8" name="E-Pick Games Escapes" tags="" position="800,500" size="100,100">### Your Hacking done. Here is how you did overall
 
 ### {points} Points
 
 #### Hack Again?
 
-&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="9" name="Check Maps" tags="" position="350,425" size="100,100">{embed image: &#39;map.jpg&#39;}
+&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="9" name="Check Maps" tags="" position="125,1275" size="100,100">{embed image: &#39;map.jpg&#39;}
 
 You open the map out to examine and plot your next course of action. 
 You can plan your actions based on this inforamtion. 
 
-Nothing like a good plan to ensure a smooth opeariton.
-do you feel ready to return back to hacking or would you like to double check your team skills?
+Nothing like a good plan to ensure a smooth operation.
+Do you feel ready to return back to hacking or would you like to double check your team skills?
 
+[if team===1]
 &gt;[[Attempt Your Hack]] 
 &gt;[[Change your Attack]] 
-&gt;[[E-Pick Games Escapes]] </tw-passagedata><tw-passagedata pid="10" name="E-Pick Successfully Attacks" tags="" position="775,625" size="100,100">points: points+10
+&gt;[[E-Pick Games Escapes]] 
+[continued]
+
+[if team===2]
+&gt;[[Attempt to Attack]] 
+&gt;[[Change your Attack]] 
+&gt;[[Escape from the building]]
+[continued]
+
+</tw-passagedata><tw-passagedata pid="10" name="E-Pick Successfully Attacks" tags="" position="725,800" size="100,100">points: points+10
 --
 
 You gained 10 points by successfully
@@ -485,10 +497,20 @@ You gained 10 points by successfully
 
 Your points overall are at {points}
 
-&gt;[[Change your Attack]]
+
+[if points===30]
+
+[JavaScript]
+engine.state.set(&#39;floor&#39;, 2);
+[continue]
+
+You have now succesfully infiltrated Floor 1 and move to the 2nd floor
+[continue]
+
+&gt;[[Change your Attack]] 
+&gt;[[Attempt Your Hack]] 
 &gt;[[Check Maps]] 
-&gt;[[E-Pick Games Escapes]] 
-</tw-passagedata><tw-passagedata pid="11" name="E-Pick Fails in their Attack" tags="" position="100,1050" size="100,100">points: points-10
+&gt;[[E-Pick Games Escapes]] </tw-passagedata><tw-passagedata pid="11" name="E-Pick Fails in their Attack" tags="" position="525,600" size="100,100">points: points-10
 --
 
 You lost -10 points by failing to
@@ -500,6 +522,7 @@ You lost -10 points by failing to
 [if points&gt;-30]
 Your points overall are at {points}
 
+&gt;[[Change your Attack]] 
 &gt;[[Attempt Your Hack]] 
 &gt;[[Check Maps]] 
 &gt;[[E-Pick Games Escapes]] 
@@ -510,12 +533,8 @@ You are detected by the security team who isolate you and arrest you.
 &gt;[[You were detected by the CyberSec team]]
 
 [continued]
-
-
-</tw-passagedata><tw-passagedata pid="12" name="Change your Attack" tags="" position="475,950" size="100,100">chosenOne:&#39;Anatoly Cherdenko&#39;
+</tw-passagedata><tw-passagedata pid="12" name="Change your Attack" tags="" position="600,1100" size="100,100">chosenOne:&#39;Anatoly Cherdenko&#39;
 --
-
-
 {sound effect: &#39;hum&#39;, volume: 0.2}
 {sound effect: &#39;keyboard&#39;, volume: 0.2}
 
@@ -529,10 +548,10 @@ You are detected by the security team who isolate you and arrest you.
 
 {dropdown menu for: &#39;action&#39;, choices: [&#39;Unlocking Doors&#39;, &#39;Social Engineering&#39;, &#39;Hacking Computers&#39;, &#39;Picking Locks&#39;, &#39;Running Scripts&#39;, &#39;Disable Cameras&#39;,  &#39;Obfuscate ID&#39;]}
 
-
 Consider who is best equipped to deal with this task from your team. If you want to check on the requirements of each task check the [[Attack List for E-Pick]]
 
 ## Who will you choose to perform this action from your team?
+
 {dropdown menu for: &#39;chosenOne&#39;, choices: [&#39;Anatoly Cherdenko&#39;, &#39;Lauren Meiler&#39;, &#39;Andy Wilkins&#39;,&#39;Georgina Takai&#39;]}
 
 &gt;[[Attempt Your Hack]]
@@ -541,7 +560,7 @@ Consider who is best equipped to deal with this task from your team. If you want
 &gt;[[Attempt Extraction of Mission Files]]
 [continue]
 Or do you need to double check on your team skills again?
-&gt;[[Red Team 1 E-Pick Games]] </tw-passagedata><tw-passagedata pid="13" name="You were detected by the CyberSec team" tags="" position="950,700" size="100,100"># You lost the game
+&gt;[[Red Team 1 E-Pick Games]] </tw-passagedata><tw-passagedata pid="13" name="You were detected by the CyberSec team" tags="" position="1375,700" size="100,100"># You lost the game
 
 {embed image: &#39;arrest.jpg&#39;}
 
@@ -549,9 +568,11 @@ You were detected and failed in your primary missions.
 Your final points were {points}
 Try to be more careful next time. 
 
+You managed to reach floor {floor} of 2 Floors
+
 Would you like to play again?
 
-&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="14" name="Attempt Extraction of Mission Files" tags="" position="650,1225" size="100,100"># You have secured sufficient access to attempt extraction of the files from Felontronic Barts server.
+&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="14" name="Attempt Extraction of Mission Files" tags="" position="1025,1100" size="100,100"># You have secured sufficient access to attempt extraction of the files from Felontronic Barts server.
 
 It is important you succeed in this, as this is your core mission. This is an attack of type &#39;Hacking&#39; and will likely require a technical expert to ensure they can break through Felontronic Barts server security. 
 
@@ -559,7 +580,7 @@ It is important you succeed in this, as this is your core mission. This is an at
 {dropdown menu for: &#39;chosenOne&#39;, choices: [&#39;Anatoly Cherdenko&#39;, &#39;Lauren Meiler&#39;, &#39;Andy Wilkins&#39;,&#39;Georgina Takai&#39;]}
 
 &gt;[[Extract Game files from Felontronic Barts Server]]
-</tw-passagedata><tw-passagedata pid="15" name="Extract Game files from Felontronic Barts Server" tags="" position="1025,1075" size="100,100">finalMission:0
+</tw-passagedata><tw-passagedata pid="15" name="Extract Game files from Felontronic Barts Server" tags="" position="1250,1075" size="100,100">finalMission:0
 --
 
 [if chosenOne === &quot;Anatoly Cherdenko&quot;]
@@ -625,7 +646,37 @@ You were detected during your extraction of the files. Despite your best efforts
 # A truly &#39;E-pick&#39; win 
 
 Play Again?
-&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="17" name="The Total Halibut Collective Attacks Blue Team" tags="" position="2200,225" size="100,100"></tw-passagedata><tw-passagedata pid="18" name="Attack List for E-Pick" tags="" position="200,1250" size="100,100"># Cybersec D&amp;D Attack list
+&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="17" name="The Total Halibut Collective Attacks Blue Team" tags="" position="2100,300" size="100,100">action: &#39;DDOS Attack&#39;
+chosenOne:&#39;J.K Ackermano&#39;
+attackType:&#39;Hacking&#39;
+--
+
+{sound effect: &#39;hum&#39;, volume: 0.2}
+{sound effect: &#39;keyboard&#39;, volume: 0.2}
+
+### The Total Halibrut Collective Attacking Blue Team
+
+{embed image: &#39;hack.jpg&#39;}
+
+You apporach Felntrolic Barts towers. A 23 floor office building.
+Felontropic Barts are located on the 11th and 12th floors of the building. Access is through lanyards and their private and secure areas require biometrics to access them. You need to steal as much compromising information as possible.
+
+## Choose your action
+
+#### What is your teams next attempted action?
+
+{dropdown menu for: &#39;action&#39;, choices: [&#39;DDOS Attack&#39;, &#39;Picking Locks&#39;, &#39;Social Engineering&#39;, &#39;Hacking Computers&#39;,&#39;Trojan House Attack&#39;, &#39;Running Scripts&#39;, &#39;Disable Cameras&#39;, &#39;Obfuscate ID&#39;]}
+
+
+## Who will you choose to perform this action from your team?
+
+{dropdown menu for: &#39;chosenOne&#39;, choices: [&#39;J.K Ackerman&#39;, &#39;Tim Stew&#39;, &#39;Griff Simmons&#39; ,&#39;Zoe Payne&#39;]}
+
+
+&gt;[[Attempt to Attack]]
+&gt;[[Check Maps]]
+Or do you need to double check on your team skills again?
+&gt;[[Red Team 2 The Total Hallibut Collective]] </tw-passagedata><tw-passagedata pid="18" name="Attack List for E-Pick" tags="" position="775,1300" size="100,100"># Cybersec D&amp;D Attack list
 
 {embed image: &#39;backdrop.jpg&#39;}
 
@@ -651,7 +702,249 @@ Disabling cameras is a method used to avoid surveillance detection by disabling 
 
 ### Obfuscate ID (Hacking)
 Obfuscating an ID in cybersecurity involves concealing or altering an individual&#39;s identity to avoid detection. This could be through using techniques like IP masking, encryption, or employing anonymizing services such as VPNs or the Tor network. By obfuscating an ID, hackers can hide their true location, circumvent security measures, and maintain anonymity while committing cybercrimes. In contrast, security professionals may use obfuscation techniques to protect sensitive data or to test how well a system can prevent unauthorized access from anonymous or disguised users.
-</tw-passagedata></tw-storydata><script>!function(){"use strict";var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:{};function t(e){if(e.__esModule)return e;var t=Object.defineProperty({},"__esModule",{value:!0});return Object.keys(e).forEach((function(n){var r=Object.getOwnPropertyDescriptor(e,n);Object.defineProperty(t,n,r.get?r:{enumerable:!0,get:function(){return e[n]}})})),t}var n="undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{};function r(){throw new Error("setTimeout has not been defined")}function o(){throw new Error("clearTimeout has not been defined")}var i=r,a=o;function s(e){if(i===setTimeout)return setTimeout(e,0);if((i===r||!i)&&setTimeout)return i=setTimeout,setTimeout(e,0);try{return i(e,0)}catch(t){try{return i.call(null,e,0)}catch(t){return i.call(this,e,0)}}}"function"==typeof n.setTimeout&&(i=setTimeout),"function"==typeof n.clearTimeout&&(a=clearTimeout);var c,l=[],u=!1,f=-1;function p(){u&&c&&(u=!1,c.length?l=c.concat(l):f=-1,l.length&&d())}function d(){if(!u){var e=s(p);u=!0;for(var t=l.length;t;){for(c=l,l=[];++f<t;)c&&c[f].run();f=-1,t=l.length}c=null,u=!1,function(e){if(a===clearTimeout)return clearTimeout(e);if((a===o||!a)&&clearTimeout)return a=clearTimeout,clearTimeout(e);try{a(e)}catch(t){try{return a.call(null,e)}catch(t){return a.call(this,e)}}}(e)}}function h(e,t){this.fun=e,this.array=t}h.prototype.run=function(){this.fun.apply(null,this.array)};function g(){}var m=g,b=g,v=g,y=g,w=g,k=g,x=g;var S=n.performance||{},_=S.now||S.mozNow||S.msNow||S.oNow||S.webkitNow||function(){return(new Date).getTime()};var E=new Date;var C={nextTick:function(e){var t=new Array(arguments.length-1);if(arguments.length>1)for(var n=1;n<arguments.length;n++)t[n-1]=arguments[n];l.push(new h(e,t)),1!==l.length||u||s(d)},title:"browser",browser:!0,env:{},argv:[],version:"",versions:{},on:m,addListener:b,once:v,off:y,removeListener:w,removeAllListeners:k,emit:x,binding:function(e){throw new Error("process.binding is not supported")},cwd:function(){return"/"},chdir:function(e){throw new Error("process.chdir is not supported")},umask:function(){return 0},hrtime:function(e){var t=.001*_.call(S),n=Math.floor(t),r=Math.floor(t%1*1e9);return e&&(n-=e[0],(r-=e[1])<0&&(n--,r+=1e9)),[n,r]},platform:"browser",release:{},config:{},uptime:function(){return(new Date-E)/1e3}};function A(e){return null!=e&&(!!e._isBuffer||O(e)||function(e){return"function"==typeof e.readFloatLE&&"function"==typeof e.slice&&O(e.slice(0,0))}(e))}function O(e){return!!e.constructor&&"function"==typeof e.constructor.isBuffer&&e.constructor.isBuffer(e)}void 0===n.TYPED_ARRAY_SUPPORT||n.TYPED_ARRAY_SUPPORT;var T="function"==typeof Object.create?function(e,t){e.super_=t,e.prototype=Object.create(t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}})}:function(e,t){e.super_=t;var n=function(){};n.prototype=t.prototype,e.prototype=new n,e.prototype.constructor=e};function j(e,t){var n={seen:[],stylize:L};return arguments.length>=3&&(n.depth=arguments[2]),arguments.length>=4&&(n.colors=arguments[3]),D(t)?n.showHidden=t:t&&J(n,t),R(n.showHidden)&&(n.showHidden=!1),R(n.depth)&&(n.depth=2),R(n.colors)&&(n.colors=!1),R(n.customInspect)&&(n.customInspect=!0),n.colors&&(n.stylize=z),N(n,e,n.depth)}function z(e,t){var n=j.styles[t];return n?"["+j.colors[n][0]+"m"+e+"["+j.colors[n][1]+"m":e}function L(e,t){return e}function N(e,t,n){if(e.customInspect&&t&&H(t.inspect)&&t.inspect!==j&&(!t.constructor||t.constructor.prototype!==t)){var r=t.inspect(n,e);return q(r)||(r=N(e,r,n)),r}var o=function(e,t){if(R(t))return e.stylize("undefined","undefined");if(q(t)){var n="'"+JSON.stringify(t).replace(/^"|"$/g,"").replace(/'/g,"\\'").replace(/\\"/g,'"')+"'";return e.stylize(n,"string")}if(r=t,"number"==typeof r)return e.stylize(""+t,"number");var r;if(D(t))return e.stylize(""+t,"boolean");if(P(t))return e.stylize("null","null")}(e,t);if(o)return o;var i=Object.keys(t),a=function(e){var t={};return e.forEach((function(e,n){t[e]=!0})),t}(i);if(e.showHidden&&(i=Object.getOwnPropertyNames(t)),U(t)&&(i.indexOf("message")>=0||i.indexOf("description")>=0))return $(t);if(0===i.length){if(H(t)){var s=t.name?": "+t.name:"";return e.stylize("[Function"+s+"]","special")}if(M(t))return e.stylize(RegExp.prototype.toString.call(t),"regexp");if(B(t))return e.stylize(Date.prototype.toString.call(t),"date");if(U(t))return $(t)}var c,l,u="",f=!1,p=["{","}"];(c=t,Array.isArray(c)&&(f=!0,p=["[","]"]),H(t))&&(u=" [Function"+(t.name?": "+t.name:"")+"]");return M(t)&&(u=" "+RegExp.prototype.toString.call(t)),B(t)&&(u=" "+Date.prototype.toUTCString.call(t)),U(t)&&(u=" "+$(t)),0!==i.length||f&&0!=t.length?n<0?M(t)?e.stylize(RegExp.prototype.toString.call(t),"regexp"):e.stylize("[Object]","special"):(e.seen.push(t),l=f?function(e,t,n,r,o){for(var i=[],a=0,s=t.length;a<s;++a)G(t,String(a))?i.push(I(e,t,n,r,String(a),!0)):i.push("");return o.forEach((function(o){o.match(/^\d+$/)||i.push(I(e,t,n,r,o,!0))})),i}(e,t,n,a,i):i.map((function(r){return I(e,t,n,a,r,f)})),e.seen.pop(),function(e,t,n){if(e.reduce((function(e,t){return t.indexOf("\n"),e+t.replace(/\u001b\[\d\d?m/g,"").length+1}),0)>60)return n[0]+(""===t?"":t+"\n ")+" "+e.join(",\n  ")+" "+n[1];return n[0]+t+" "+e.join(", ")+" "+n[1]}(l,u,p)):p[0]+u+p[1]}function $(e){return"["+Error.prototype.toString.call(e)+"]"}function I(e,t,n,r,o,i){var a,s,c;if((c=Object.getOwnPropertyDescriptor(t,o)||{value:t[o]}).get?s=c.set?e.stylize("[Getter/Setter]","special"):e.stylize("[Getter]","special"):c.set&&(s=e.stylize("[Setter]","special")),G(r,o)||(a="["+o+"]"),s||(e.seen.indexOf(c.value)<0?(s=P(n)?N(e,c.value,null):N(e,c.value,n-1)).indexOf("\n")>-1&&(s=i?s.split("\n").map((function(e){return"  "+e})).join("\n").substr(2):"\n"+s.split("\n").map((function(e){return"   "+e})).join("\n")):s=e.stylize("[Circular]","special")),R(a)){if(i&&o.match(/^\d+$/))return s;(a=JSON.stringify(""+o)).match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)?(a=a.substr(1,a.length-2),a=e.stylize(a,"name")):(a=a.replace(/'/g,"\\'").replace(/\\"/g,'"').replace(/(^"|"$)/g,"'"),a=e.stylize(a,"string"))}return a+": "+s}function D(e){return"boolean"==typeof e}function P(e){return null===e}function q(e){return"string"==typeof e}function R(e){return void 0===e}function M(e){return F(e)&&"[object RegExp]"===W(e)}function F(e){return"object"==typeof e&&null!==e}function B(e){return F(e)&&"[object Date]"===W(e)}function U(e){return F(e)&&("[object Error]"===W(e)||e instanceof Error)}function H(e){return"function"==typeof e}function Z(e){return null===e||"boolean"==typeof e||"number"==typeof e||"string"==typeof e||"symbol"==typeof e||void 0===e}function W(e){return Object.prototype.toString.call(e)}function J(e,t){if(!t||!F(t))return e;for(var n=Object.keys(t),r=n.length;r--;)e[n[r]]=t[n[r]];return e}function G(e,t){return Object.prototype.hasOwnProperty.call(e,t)}function V(e,t){if(e===t)return 0;for(var n=e.length,r=t.length,o=0,i=Math.min(n,r);o<i;++o)if(e[o]!==t[o]){n=e[o],r=t[o];break}return n<r?-1:r<n?1:0}j.colors={bold:[1,22],italic:[3,23],underline:[4,24],inverse:[7,27],white:[37,39],grey:[90,39],black:[30,39],blue:[34,39],cyan:[36,39],green:[32,39],magenta:[35,39],red:[31,39],yellow:[33,39]},j.styles={special:"cyan",number:"yellow",boolean:"yellow",undefined:"grey",null:"bold",string:"green",date:"magenta",regexp:"red"};var Y,X=Object.prototype.hasOwnProperty,K=Object.keys||function(e){var t=[];for(var n in e)X.call(e,n)&&t.push(n);return t},Q=Array.prototype.slice;function ee(){return void 0!==Y?Y:Y="foo"===function(){}.name}function te(e){return Object.prototype.toString.call(e)}function ne(e){return!A(e)&&("function"==typeof n.ArrayBuffer&&("function"==typeof ArrayBuffer.isView?ArrayBuffer.isView(e):!!e&&(e instanceof DataView||!!(e.buffer&&e.buffer instanceof ArrayBuffer))))}function re(e,t){e||le(e,!0,t,"==",ue)}var oe=/\s*function\s+([^\(\s]*)\s*/;function ie(e){if(H(e)){if(ee())return e.name;var t=e.toString().match(oe);return t&&t[1]}}function ae(e){this.name="AssertionError",this.actual=e.actual,this.expected=e.expected,this.operator=e.operator,e.message?(this.message=e.message,this.generatedMessage=!1):(this.message=function(e){return se(ce(e.actual),128)+" "+e.operator+" "+se(ce(e.expected),128)}(this),this.generatedMessage=!0);var t=e.stackStartFunction||le;if(Error.captureStackTrace)Error.captureStackTrace(this,t);else{var n=new Error;if(n.stack){var r=n.stack,o=ie(t),i=r.indexOf("\n"+o);if(i>=0){var a=r.indexOf("\n",i+1);r=r.substring(a+1)}this.stack=r}}}function se(e,t){return"string"==typeof e?e.length<t?e:e.slice(0,t):e}function ce(e){if(ee()||!H(e))return j(e);var t=ie(e);return"[Function"+(t?": "+t:"")+"]"}function le(e,t,n,r,o){throw new ae({message:n,actual:e,expected:t,operator:r,stackStartFunction:o})}function ue(e,t){e||le(e,!0,t,"==",ue)}function fe(e,t,n){e!=t&&le(e,t,n,"==",fe)}function pe(e,t,n){e==t&&le(e,t,n,"!=",pe)}function de(e,t,n){ge(e,t,!1)||le(e,t,n,"deepEqual",de)}function he(e,t,n){ge(e,t,!0)||le(e,t,n,"deepStrictEqual",he)}function ge(e,t,n,r){if(e===t)return!0;if(A(e)&&A(t))return 0===V(e,t);if(B(e)&&B(t))return e.getTime()===t.getTime();if(M(e)&&M(t))return e.source===t.source&&e.global===t.global&&e.multiline===t.multiline&&e.lastIndex===t.lastIndex&&e.ignoreCase===t.ignoreCase;if(null!==e&&"object"==typeof e||null!==t&&"object"==typeof t){if(ne(e)&&ne(t)&&te(e)===te(t)&&!(e instanceof Float32Array||e instanceof Float64Array))return 0===V(new Uint8Array(e.buffer),new Uint8Array(t.buffer));if(A(e)!==A(t))return!1;var o=(r=r||{actual:[],expected:[]}).actual.indexOf(e);return-1!==o&&o===r.expected.indexOf(t)||(r.actual.push(e),r.expected.push(t),function(e,t,n,r){if(null==e||null==t)return!1;if(Z(e)||Z(t))return e===t;if(n&&Object.getPrototypeOf(e)!==Object.getPrototypeOf(t))return!1;var o=me(e),i=me(t);if(o&&!i||!o&&i)return!1;if(o)return ge(e=Q.call(e),t=Q.call(t),n);var a,s,c=K(e),l=K(t);if(c.length!==l.length)return!1;for(c.sort(),l.sort(),s=c.length-1;s>=0;s--)if(c[s]!==l[s])return!1;for(s=c.length-1;s>=0;s--)if(!ge(e[a=c[s]],t[a],n,r))return!1;return!0}(e,t,n,r))}return n?e===t:e==t}function me(e){return"[object Arguments]"==Object.prototype.toString.call(e)}function be(e,t,n){ge(e,t,!1)&&le(e,t,n,"notDeepEqual",be)}function ve(e,t,n){ge(e,t,!0)&&le(e,t,n,"notDeepStrictEqual",ve)}function ye(e,t,n){e!==t&&le(e,t,n,"===",ye)}function we(e,t,n){e===t&&le(e,t,n,"!==",we)}function ke(e,t){if(!e||!t)return!1;if("[object RegExp]"==Object.prototype.toString.call(t))return t.test(e);try{if(e instanceof t)return!0}catch(e){}return!Error.isPrototypeOf(t)&&!0===t.call({},e)}function xe(e,t,n,r){var o;if("function"!=typeof t)throw new TypeError('"block" argument must be a function');"string"==typeof n&&(r=n,n=null),o=function(e){var t;try{e()}catch(e){t=e}return t}(t),r=(n&&n.name?" ("+n.name+").":".")+(r?" "+r:"."),e&&!o&&le(o,n,"Missing expected exception"+r);var i="string"==typeof r,a=!e&&o&&!n;if((!e&&U(o)&&i&&ke(o,n)||a)&&le(o,n,"Got unwanted exception"+r),e&&o&&n&&!ke(o,n)||!e&&o)throw o}function Se(e,t,n){xe(!0,e,t,n)}function _e(e,t,n){xe(!1,e,t,n)}function Ee(e){if(e)throw e}re.AssertionError=ae,T(ae,Error),re.fail=le,re.ok=ue,re.equal=fe,re.notEqual=pe,re.deepEqual=de,re.deepStrictEqual=he,re.notDeepEqual=be,re.notDeepStrictEqual=ve,re.strictEqual=ye,re.notStrictEqual=we,re.throws=Se,re.doesNotThrow=_e,re.ifError=Ee;var Ce=t(Object.freeze({__proto__:null,default:re,AssertionError:ae,fail:le,ok:ue,assert:ue,equal:fe,notEqual:pe,deepEqual:de,deepStrictEqual:he,notDeepEqual:be,notDeepStrictEqual:ve,strictEqual:ye,notStrictEqual:we,throws:Se,doesNotThrow:_e,ifError:Ee})),Ae=Ce,Oe="undefined"!=typeof window;function Te(e){this.hasWindow=e,this.hasIdle=this.hasWindow&&window.requestIdleCallback,this.method=this.hasIdle?window.requestIdleCallback.bind(window):this.setTimeout,this.scheduled=!1,this.queue=[]}Te.prototype.push=function(e){Ae.equal(typeof e,"function","nanoscheduler.push: cb should be type function"),this.queue.push(e),this.schedule()},Te.prototype.schedule=function(){if(!this.scheduled){this.scheduled=!0;var e=this;this.method((function(t){for(;e.queue.length&&t.timeRemaining()>0;)e.queue.shift()(t);e.scheduled=!1,e.queue.length&&e.schedule()}))}},Te.prototype.setTimeout=function(e){setTimeout(e,0,{timeRemaining:function(){return 1}})};var je,ze=function(){var e;return Oe?(window._nanoScheduler||(window._nanoScheduler=new Te(!0)),e=window._nanoScheduler):e=new Te,e},Le=ze(),Ne=Ce;Ie.disabled=!0;try{je=window.performance,Ie.disabled="true"===window.localStorage.DISABLE_NANOTIMING||!je.mark}catch(e){}var $e=Ie;function Ie(e){if(Ne.equal(typeof e,"string","nanotiming: name should be type string"),Ie.disabled)return De;var t=(1e4*je.now()).toFixed()%Number.MAX_SAFE_INTEGER,n="start-"+t+"-"+e;function r(r){var o="end-"+t+"-"+e;je.mark(o),Le.push((function(){var i=null;try{var a=e+" ["+t+"]";je.measure(a,n,o),je.clearMarks(n),je.clearMarks(o)}catch(e){i=e}r&&r(i,e)}))}return je.mark(n),r.uuid=t,r}function De(e){e&&Le.push((function(){e(new Error("nanotiming: performance API unavailable"))}))}var Pe,qe=Ce;Re.disabled=!0;try{Pe=require("perf_hooks").performance,Re.disabled=C.env.DISABLE_NANOTIMING||!Pe.mark}catch(e){}function Re(e){if("undefined"!=typeof window)return $e(e);if(qe.equal(typeof e,"string","nanotiming: name should be type string"),Re.disabled)return Me;var t=(1e4*Pe.now()).toFixed()%Number.MAX_SAFE_INTEGER,n="start-"+t+"-"+e;function r(r){var o="end-"+t+"-"+e;Pe.mark(o);var i=null;try{var a=e+" ["+t+"]";Pe.measure(a,n,o),Pe.clearMarks(n),Pe.clearMarks(o)}catch(e){i=e}r&&r(i,e)}return Pe.mark(n),r.uuid=t,r}function Me(e){e&&e(new Error("nanotiming: performance API unavailable"))}var Fe=function(e,t,n){var r,o=e.length;if(!(t>=o||0===n)){var i=o-(n=t+n>o?o-t:n);for(r=t;r<i;++r)e[r]=e[r+n];e.length=i}},Be=Re,Ue=Ce,He=Ze;function Ze(e){if(!(this instanceof Ze))return new Ze(e);this._name=e||"nanobus",this._starListeners=[],this._listeners={}}Ze.prototype.emit=function(e){Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.emit: eventName should be type string or symbol");for(var t=[],n=1,r=arguments.length;n<r;n++)t.push(arguments[n]);var o=Be(this._name+"('"+e.toString()+"')"),i=this._listeners[e];return i&&i.length>0&&this._emit(this._listeners[e],t),this._starListeners.length>0&&this._emit(this._starListeners,e,t,o.uuid),o(),this},Ze.prototype.on=Ze.prototype.addListener=function(e,t){return Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.on: eventName should be type string or symbol"),Ue.equal(typeof t,"function","nanobus.on: listener should be type function"),"*"===e?this._starListeners.push(t):(this._listeners[e]||(this._listeners[e]=[]),this._listeners[e].push(t)),this},Ze.prototype.prependListener=function(e,t){return Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.prependListener: eventName should be type string or symbol"),Ue.equal(typeof t,"function","nanobus.prependListener: listener should be type function"),"*"===e?this._starListeners.unshift(t):(this._listeners[e]||(this._listeners[e]=[]),this._listeners[e].unshift(t)),this},Ze.prototype.once=function(e,t){Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.once: eventName should be type string or symbol"),Ue.equal(typeof t,"function","nanobus.once: listener should be type function");var n=this;return this.on(e,(function r(){t.apply(n,arguments),n.removeListener(e,r)})),this},Ze.prototype.prependOnceListener=function(e,t){Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.prependOnceListener: eventName should be type string or symbol"),Ue.equal(typeof t,"function","nanobus.prependOnceListener: listener should be type function");var n=this;return this.prependListener(e,(function r(){t.apply(n,arguments),n.removeListener(e,r)})),this},Ze.prototype.removeListener=function(e,t){return Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.removeListener: eventName should be type string or symbol"),Ue.equal(typeof t,"function","nanobus.removeListener: listener should be type function"),"*"===e?(this._starListeners=this._starListeners.slice(),n(this._starListeners,t)):(void 0!==this._listeners[e]&&(this._listeners[e]=this._listeners[e].slice()),n(this._listeners[e],t));function n(e,t){if(e){var n=e.indexOf(t);return-1!==n?(Fe(e,n,1),!0):void 0}}},Ze.prototype.removeAllListeners=function(e){return e?"*"===e?this._starListeners=[]:this._listeners[e]=[]:(this._starListeners=[],this._listeners={}),this},Ze.prototype.listeners=function(e){var t="*"!==e?this._listeners[e]:this._starListeners,n=[];if(t)for(var r=t.length,o=0;o<r;o++)n.push(t[o]);return n},Ze.prototype._emit=function(e,t,n,r){if(void 0!==e&&0!==e.length){void 0===n&&(n=t,t=null),t&&(n=void 0!==r?[t].concat(n,r):[t].concat(n));for(var o=e.length,i=0;i<o;i++){var a=e[i];a.apply(a,n)}}};var We=He();function Je(e){return Je="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Je(e)}function Ge(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function Ve(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function Ye(e,t,n){return t&&Ve(e.prototype,t),n&&Ve(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function Xe(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),Object.defineProperty(e,"prototype",{writable:!1}),t&&Qe(e,t)}function Ke(e){return Ke=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},Ke(e)}function Qe(e,t){return Qe=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e},Qe(e,t)}function et(e,t){if(t&&("object"==typeof t||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");return function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e)}function tt(e){var t=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return!1}}();return function(){var n,r=Ke(e);if(t){var o=Ke(this).constructor;n=Reflect.construct(r,arguments,o)}else n=r.apply(this,arguments);return et(this,n)}}function nt(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null==n)return;var r,o,i=[],a=!0,s=!1;try{for(n=n.call(e);!(a=(r=n.next()).done)&&(i.push(r.value),!t||i.length!==t);a=!0);}catch(e){s=!0,o=e}finally{try{a||null==n.return||n.return()}finally{if(s)throw o}}return i}(e,t)||ot(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function rt(e){return function(e){if(Array.isArray(e))return it(e)}(e)||function(e){if("undefined"!=typeof Symbol&&null!=e[Symbol.iterator]||null!=e["@@iterator"])return Array.from(e)}(e)||ot(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function ot(e,t){if(e){if("string"==typeof e)return it(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?it(e,t):void 0}}function it(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n<t;n++)r[n]=e[n];return r}function at(e,t){var n="undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(!n){if(Array.isArray(e)||(n=ot(e))||t&&e&&"number"==typeof e.length){n&&(e=n);var r=0,o=function(){};return{s:o,n:function(){return r>=e.length?{done:!0}:{done:!1,value:e[r++]}},e:function(e){throw e},f:o}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var i,a=!0,s=!1;return{s:function(){n=n.call(e)},n:function(){var e=n.next();return a=e.done,e},e:function(e){s=!0,i=e},f:function(){try{a||null==n.return||n.return()}finally{if(s)throw i}}}}
+</tw-passagedata><tw-passagedata pid="19" name="Attempt to Attack" tags="" position="2475,600" size="100,100">calcAttempt :0
+--
+
+### You Begin your Attack!
+
+[if actionDifficulty === 1]
+
+[JavaScript]
+engine.state.set(&#39;difficultyCheck&#39;, 10);
+[continue]
+
+[if actionDifficulty === 2]
+
+[JavaScript]
+engine.state.set(&#39;difficultyCheck&#39;, 12);
+[continue]
+
+
+[if actionDifficulty === 3]
+
+[JavaScript]
+engine.state.set(&#39;difficultyCheck&#39;, 14);
+[continue]
+
+[if actionDifficulty === 4]
+
+[JavaScript]
+engine.state.set(&#39;difficultyCheck&#39;, 16);
+[continue]
+
+[if actionDifficulty === 5]
+
+[JavaScript]
+engine.state.set(&#39;difficultyCheck&#39;, 20);
+[continue]
+
+[if action === &#39;DDOS Attacks&#39;]
+[JavaScript]
+engine.state.set(&#39;actionDifficulty&#39;, 3);
+engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;);
+[continue]
+
+[if action === &#39;Social Engineering&#39;]
+[JavaScript]
+engine.state.set(&#39;actionDifficulty&#39;, 3);
+engine.state.set(&#39;actionType&#39;, &#39;Social&#39;);
+[continue]
+
+[if action === &#39;Picking Locks&#39;]
+
+[JavaScript]
+engine.state.set(&#39;actionDifficulty&#39;, 3);
+engine.state.set(&#39;actionType&#39;, &#39;Infiltration&#39;);
+[continue]
+
+[if action === &#39;Trojan House Attack&#39;]
+[JavaScript]
+engine.state.set(&#39;actionDifficulty&#39;, 5);
+engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;);
+[continue]
+
+[if action === &#39;Running Scripts&#39;]
+[JavaScript]
+engine.state.set(&#39;actionDifficulty&#39;, 5);
+engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;);
+[continue]
+
+
+[if action === &#39;Obfuscate ID&#39;]
+[JavaScript]
+engine.state.set(&#39;actionDifficulty&#39;, 4);
+engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;)
+[continue]
+[if chosenOne === &quot;&#39;J.K Ackerman&quot;]
+
+[JavaScript]
+engine.state.set(&#39;hackingMod&#39;, -2);
+engine.state.set(&#39;socialMod&#39;, 0);
+engine.state.set(&#39;infilMod&#39;, -2);
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod);
+[continue]
+
+[if chosenOne === &quot;Tim Stew&quot;]
+[JavaScript]
+engine.state.set(&#39;hackingMod&#39;, +3);
+engine.state.set(&#39;socialMod&#39;,+1);
+engine.state.set(&#39;infilMod&#39;, -3);
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod);
+[continue]
+
+[if chosenOne === &quot;Griff Simmons&quot;]
+[JavaScript]
+engine.state.set(&#39;hackingMod&#39;, +1);
+engine.state.set(&#39;socialMod&#39;,+5);
+engine.state.set(&#39;infilMod&#39;, +3);
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod);
+[continue]
+
+[if chosenOne === &quot;Zoe Payne&quot;]
+[JavaScript]
+engine.state.set(&#39;hackingMod&#39;, +5);
+engine.state.set(&#39;socialMod&#39;,+4);
+engine.state.set(&#39;infilMod&#39;, -3);
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod);
+[continue]
+
+[after 1 second]
+You have chosen {chosenOne} to perform the feat of {action}
+which is a {actionDifficulty} level cybersecurity problem of type {actionType} which requires a roll more than {difficultyCheck} to succeed.
+
+You have the modifers of {hackingMod} Hacking, a  {socialMod} social modifer and a {infilMod} infiltration bonus. These are all included within the hack attempt. 
+[continued]
+
+[after 2 second]
+Your elected hacker {chosenOne} attempts {action}
+[continued]
+
+[if calcAttempt&gt;difficultyCheck]
+
+[after 4 second]
+
+{sound effect: &#39;success&#39;, volume: 0.8}
+
+{embed image: &#39;succeed.jpg&#39;}
+
+### You rolled a {calcAttempt} and you Succeeded in  {action}
+
+&gt;[[The Total Halibut collective Successfully Attacks]]
+
+[else]
+
+{sound effect: &#39;fail&#39;, volume: 0.6}
+{embed image: &#39;fail.jpg&#39;}
+### You rolled a {calcAttempt} and Failed at  {action}
+&gt;[[The Total Halibut collective Fails in their Attack]]
+
+[continued]
+
+</tw-passagedata><tw-passagedata pid="20" name="The Total Halibut collective Successfully Attacks" tags="" position="2225,700" size="100,100">points: points+10
+--
+
+You gained 10 points by successfully
+{action}.
+
+{chosenOne} was able to successfully {action}
+
+Your points overall are at {points}
+
+[if points===30]
+
+[JavaScript]
+engine.state.set(&#39;floor&#39;, 2);
+[continue]
+
+You have now succesfully infiltrated Floor 1 and move to the 2nd floor
+[continue]
+
+&gt;[[Modify Attack]] 
+&gt;[[Attempt to Attack]] 
+&gt;[[Check Maps]] 
+&gt;[[Escape from the building]]</tw-passagedata><tw-passagedata pid="21" name="The Total Halibut collective Fails in their Attack" tags="" position="1750,925" size="100,100">points: points-10
+--
+
+You lost -10 points by failing to
+{action}.
+
+{chosenOne} was unable to successfully {action}
+
+
+[if points&gt;-30]
+Your points overall are at {points}
+
+&gt;[[Modify Attack]]
+&gt;[[Attempt to Attack]] 
+&gt;[[Check Maps]] 
+&gt;[[E-Pick Games Escapes]] 
+
+[else]
+Your Points have fallen to {points}
+You are detected by the security team who isolate you and arrest you.
+&gt;[[You were detected by the CyberSec team]]
+
+[continued]
+</tw-passagedata><tw-passagedata pid="22" name="Escape from the building" tags="" position="1775,450" size="100,100">### Your Hacking done. Here is how you did overall
+
+### {points} Points
+
+#### Hack Again?
+
+&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="23" name="Modify Attack" tags="" position="2125,1225" size="100,100">{sound effect: &#39;hum&#39;, volume: 0.2}
+{sound effect: &#39;keyboard&#39;, volume: 0.2}
+
+### The Total Halibut Collective Attacking Blue Team
+
+{embed image: &#39;hack.jpg&#39;}
+
+## Choose your action
+
+#### What is your teams next attempted action?
+
+{dropdown menu for: &#39;action&#39;, choices: [&#39;DDOS Attack&#39;, &#39;Picking Locks&#39;, &#39;Social Engineering&#39;, &#39;Hacking Computers&#39;,&#39;Trojan House Attack&#39;, &#39;Running Scripts&#39;, &#39;Disable Cameras&#39;, &#39;Obfuscate ID&#39;]}
+
+Consider who is best equipped to deal with this task from your team. If you want to check on the requirements of each task check the [[Attack List for The Total Halibut Collective]]
+
+## Who will you choose to perform this action from your team?
+
+{dropdown menu for: &#39;chosenOne&#39;, choices: [&#39;J.K Ackerman&#39;, &#39;Tim Stew&#39;, &#39;Griff Simmons&#39; ,&#39;Zoe Payne&#39;]}
+
+&gt;[[Attempt to Attack]]
+&gt;[[Check Maps]]
+[if points &gt; 60]
+&gt;[[Attempt Extraction of compromising Info]]
+[continue]
+Or do you need to double check on your team skills again?
+&gt;[[Red Team 2 The Total Hallibut Collective]] </tw-passagedata><tw-passagedata pid="24" name="Attack List for The Total Halibut Collective" tags="" position="2700,1175" size="100,100"># Cybersec D&amp;D Attack list
+
+{embed image: &#39;backdrop.jpg&#39;}
+
+&gt;[[Modify Attack]]
+
+### A Distributed Denial of Service (DDoS) attack 
+overwhelms a network, server, or website with excessive traffic, rendering it inaccessible to legitimate users. Cybercriminals often use botnets to flood the target with requests, disrupting operations and causing significant downtime.
+
+### Picking Locks
+In cybersecurity, “picking locks” can refer to bypassing digital or physical security mechanisms, such as guessing passwords or exploiting vulnerabilities in encryption systems. It highlights the importance of robust authentication measures to prevent unauthorized access.
+
+### Social Engineering
+Social engineering involves manipulating individuals into revealing confidential information or performing actions that compromise security. Tactics like phishing emails, fake tech support calls, or pretexting exploit human trust rather than technical weaknesses.
+
+### Hacking Computers
+Hacking computers entails unauthorized access to computer systems or networks to steal data, deploy malware, or disrupt functionality. While often associated with criminal activity, ethical hacking is used to identify and fix vulnerabilities.
+
+### Trojan Horse Attack
+A Trojan Horse attack disguises malicious software as legitimate to trick users into installing it. Once executed, it grants attackers control, enabling data theft, surveillance, or further malware deployment.
+
+### Running Scripts
+Running scripts refers to executing automated code to perform tasks, often used by attackers to exploit vulnerabilities or automate repetitive tasks like password cracking or scanning for weak points in systems.
+
+### Disable Cameras
+Disabling cameras can be a tactic in physical and cybersecurity breaches, where attackers tamper with surveillance systems to evade detection. It emphasizes the need for monitoring and backup security measures.
+
+### Obfuscate ID
+Obfuscating ID involves concealing one’s digital identity, such as masking an IP address or using encrypted communication channels. Attackers use this to avoid detection, while ethical practices involve similar techniques to protect privacy.</tw-passagedata><tw-passagedata pid="25" name="Attempt Extraction of compromising Info" tags="" position="3200,1025" size="100,100"></tw-passagedata></tw-storydata><script>!function(){"use strict";var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:{};function t(e){if(e.__esModule)return e;var t=Object.defineProperty({},"__esModule",{value:!0});return Object.keys(e).forEach((function(n){var r=Object.getOwnPropertyDescriptor(e,n);Object.defineProperty(t,n,r.get?r:{enumerable:!0,get:function(){return e[n]}})})),t}var n="undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{};function r(){throw new Error("setTimeout has not been defined")}function o(){throw new Error("clearTimeout has not been defined")}var i=r,a=o;function s(e){if(i===setTimeout)return setTimeout(e,0);if((i===r||!i)&&setTimeout)return i=setTimeout,setTimeout(e,0);try{return i(e,0)}catch(t){try{return i.call(null,e,0)}catch(t){return i.call(this,e,0)}}}"function"==typeof n.setTimeout&&(i=setTimeout),"function"==typeof n.clearTimeout&&(a=clearTimeout);var c,l=[],u=!1,f=-1;function p(){u&&c&&(u=!1,c.length?l=c.concat(l):f=-1,l.length&&d())}function d(){if(!u){var e=s(p);u=!0;for(var t=l.length;t;){for(c=l,l=[];++f<t;)c&&c[f].run();f=-1,t=l.length}c=null,u=!1,function(e){if(a===clearTimeout)return clearTimeout(e);if((a===o||!a)&&clearTimeout)return a=clearTimeout,clearTimeout(e);try{a(e)}catch(t){try{return a.call(null,e)}catch(t){return a.call(this,e)}}}(e)}}function h(e,t){this.fun=e,this.array=t}h.prototype.run=function(){this.fun.apply(null,this.array)};function g(){}var m=g,b=g,v=g,y=g,w=g,k=g,x=g;var S=n.performance||{},_=S.now||S.mozNow||S.msNow||S.oNow||S.webkitNow||function(){return(new Date).getTime()};var E=new Date;var C={nextTick:function(e){var t=new Array(arguments.length-1);if(arguments.length>1)for(var n=1;n<arguments.length;n++)t[n-1]=arguments[n];l.push(new h(e,t)),1!==l.length||u||s(d)},title:"browser",browser:!0,env:{},argv:[],version:"",versions:{},on:m,addListener:b,once:v,off:y,removeListener:w,removeAllListeners:k,emit:x,binding:function(e){throw new Error("process.binding is not supported")},cwd:function(){return"/"},chdir:function(e){throw new Error("process.chdir is not supported")},umask:function(){return 0},hrtime:function(e){var t=.001*_.call(S),n=Math.floor(t),r=Math.floor(t%1*1e9);return e&&(n-=e[0],(r-=e[1])<0&&(n--,r+=1e9)),[n,r]},platform:"browser",release:{},config:{},uptime:function(){return(new Date-E)/1e3}};function A(e){return null!=e&&(!!e._isBuffer||O(e)||function(e){return"function"==typeof e.readFloatLE&&"function"==typeof e.slice&&O(e.slice(0,0))}(e))}function O(e){return!!e.constructor&&"function"==typeof e.constructor.isBuffer&&e.constructor.isBuffer(e)}void 0===n.TYPED_ARRAY_SUPPORT||n.TYPED_ARRAY_SUPPORT;var T="function"==typeof Object.create?function(e,t){e.super_=t,e.prototype=Object.create(t.prototype,{constructor:{value:e,enumerable:!1,writable:!0,configurable:!0}})}:function(e,t){e.super_=t;var n=function(){};n.prototype=t.prototype,e.prototype=new n,e.prototype.constructor=e};function j(e,t){var n={seen:[],stylize:L};return arguments.length>=3&&(n.depth=arguments[2]),arguments.length>=4&&(n.colors=arguments[3]),D(t)?n.showHidden=t:t&&J(n,t),R(n.showHidden)&&(n.showHidden=!1),R(n.depth)&&(n.depth=2),R(n.colors)&&(n.colors=!1),R(n.customInspect)&&(n.customInspect=!0),n.colors&&(n.stylize=z),N(n,e,n.depth)}function z(e,t){var n=j.styles[t];return n?"["+j.colors[n][0]+"m"+e+"["+j.colors[n][1]+"m":e}function L(e,t){return e}function N(e,t,n){if(e.customInspect&&t&&H(t.inspect)&&t.inspect!==j&&(!t.constructor||t.constructor.prototype!==t)){var r=t.inspect(n,e);return q(r)||(r=N(e,r,n)),r}var o=function(e,t){if(R(t))return e.stylize("undefined","undefined");if(q(t)){var n="'"+JSON.stringify(t).replace(/^"|"$/g,"").replace(/'/g,"\\'").replace(/\\"/g,'"')+"'";return e.stylize(n,"string")}if(r=t,"number"==typeof r)return e.stylize(""+t,"number");var r;if(D(t))return e.stylize(""+t,"boolean");if(P(t))return e.stylize("null","null")}(e,t);if(o)return o;var i=Object.keys(t),a=function(e){var t={};return e.forEach((function(e,n){t[e]=!0})),t}(i);if(e.showHidden&&(i=Object.getOwnPropertyNames(t)),U(t)&&(i.indexOf("message")>=0||i.indexOf("description")>=0))return $(t);if(0===i.length){if(H(t)){var s=t.name?": "+t.name:"";return e.stylize("[Function"+s+"]","special")}if(M(t))return e.stylize(RegExp.prototype.toString.call(t),"regexp");if(B(t))return e.stylize(Date.prototype.toString.call(t),"date");if(U(t))return $(t)}var c,l,u="",f=!1,p=["{","}"];(c=t,Array.isArray(c)&&(f=!0,p=["[","]"]),H(t))&&(u=" [Function"+(t.name?": "+t.name:"")+"]");return M(t)&&(u=" "+RegExp.prototype.toString.call(t)),B(t)&&(u=" "+Date.prototype.toUTCString.call(t)),U(t)&&(u=" "+$(t)),0!==i.length||f&&0!=t.length?n<0?M(t)?e.stylize(RegExp.prototype.toString.call(t),"regexp"):e.stylize("[Object]","special"):(e.seen.push(t),l=f?function(e,t,n,r,o){for(var i=[],a=0,s=t.length;a<s;++a)G(t,String(a))?i.push(I(e,t,n,r,String(a),!0)):i.push("");return o.forEach((function(o){o.match(/^\d+$/)||i.push(I(e,t,n,r,o,!0))})),i}(e,t,n,a,i):i.map((function(r){return I(e,t,n,a,r,f)})),e.seen.pop(),function(e,t,n){if(e.reduce((function(e,t){return t.indexOf("\n"),e+t.replace(/\u001b\[\d\d?m/g,"").length+1}),0)>60)return n[0]+(""===t?"":t+"\n ")+" "+e.join(",\n  ")+" "+n[1];return n[0]+t+" "+e.join(", ")+" "+n[1]}(l,u,p)):p[0]+u+p[1]}function $(e){return"["+Error.prototype.toString.call(e)+"]"}function I(e,t,n,r,o,i){var a,s,c;if((c=Object.getOwnPropertyDescriptor(t,o)||{value:t[o]}).get?s=c.set?e.stylize("[Getter/Setter]","special"):e.stylize("[Getter]","special"):c.set&&(s=e.stylize("[Setter]","special")),G(r,o)||(a="["+o+"]"),s||(e.seen.indexOf(c.value)<0?(s=P(n)?N(e,c.value,null):N(e,c.value,n-1)).indexOf("\n")>-1&&(s=i?s.split("\n").map((function(e){return"  "+e})).join("\n").substr(2):"\n"+s.split("\n").map((function(e){return"   "+e})).join("\n")):s=e.stylize("[Circular]","special")),R(a)){if(i&&o.match(/^\d+$/))return s;(a=JSON.stringify(""+o)).match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)?(a=a.substr(1,a.length-2),a=e.stylize(a,"name")):(a=a.replace(/'/g,"\\'").replace(/\\"/g,'"').replace(/(^"|"$)/g,"'"),a=e.stylize(a,"string"))}return a+": "+s}function D(e){return"boolean"==typeof e}function P(e){return null===e}function q(e){return"string"==typeof e}function R(e){return void 0===e}function M(e){return F(e)&&"[object RegExp]"===W(e)}function F(e){return"object"==typeof e&&null!==e}function B(e){return F(e)&&"[object Date]"===W(e)}function U(e){return F(e)&&("[object Error]"===W(e)||e instanceof Error)}function H(e){return"function"==typeof e}function Z(e){return null===e||"boolean"==typeof e||"number"==typeof e||"string"==typeof e||"symbol"==typeof e||void 0===e}function W(e){return Object.prototype.toString.call(e)}function J(e,t){if(!t||!F(t))return e;for(var n=Object.keys(t),r=n.length;r--;)e[n[r]]=t[n[r]];return e}function G(e,t){return Object.prototype.hasOwnProperty.call(e,t)}function V(e,t){if(e===t)return 0;for(var n=e.length,r=t.length,o=0,i=Math.min(n,r);o<i;++o)if(e[o]!==t[o]){n=e[o],r=t[o];break}return n<r?-1:r<n?1:0}j.colors={bold:[1,22],italic:[3,23],underline:[4,24],inverse:[7,27],white:[37,39],grey:[90,39],black:[30,39],blue:[34,39],cyan:[36,39],green:[32,39],magenta:[35,39],red:[31,39],yellow:[33,39]},j.styles={special:"cyan",number:"yellow",boolean:"yellow",undefined:"grey",null:"bold",string:"green",date:"magenta",regexp:"red"};var Y,X=Object.prototype.hasOwnProperty,K=Object.keys||function(e){var t=[];for(var n in e)X.call(e,n)&&t.push(n);return t},Q=Array.prototype.slice;function ee(){return void 0!==Y?Y:Y="foo"===function(){}.name}function te(e){return Object.prototype.toString.call(e)}function ne(e){return!A(e)&&("function"==typeof n.ArrayBuffer&&("function"==typeof ArrayBuffer.isView?ArrayBuffer.isView(e):!!e&&(e instanceof DataView||!!(e.buffer&&e.buffer instanceof ArrayBuffer))))}function re(e,t){e||le(e,!0,t,"==",ue)}var oe=/\s*function\s+([^\(\s]*)\s*/;function ie(e){if(H(e)){if(ee())return e.name;var t=e.toString().match(oe);return t&&t[1]}}function ae(e){this.name="AssertionError",this.actual=e.actual,this.expected=e.expected,this.operator=e.operator,e.message?(this.message=e.message,this.generatedMessage=!1):(this.message=function(e){return se(ce(e.actual),128)+" "+e.operator+" "+se(ce(e.expected),128)}(this),this.generatedMessage=!0);var t=e.stackStartFunction||le;if(Error.captureStackTrace)Error.captureStackTrace(this,t);else{var n=new Error;if(n.stack){var r=n.stack,o=ie(t),i=r.indexOf("\n"+o);if(i>=0){var a=r.indexOf("\n",i+1);r=r.substring(a+1)}this.stack=r}}}function se(e,t){return"string"==typeof e?e.length<t?e:e.slice(0,t):e}function ce(e){if(ee()||!H(e))return j(e);var t=ie(e);return"[Function"+(t?": "+t:"")+"]"}function le(e,t,n,r,o){throw new ae({message:n,actual:e,expected:t,operator:r,stackStartFunction:o})}function ue(e,t){e||le(e,!0,t,"==",ue)}function fe(e,t,n){e!=t&&le(e,t,n,"==",fe)}function pe(e,t,n){e==t&&le(e,t,n,"!=",pe)}function de(e,t,n){ge(e,t,!1)||le(e,t,n,"deepEqual",de)}function he(e,t,n){ge(e,t,!0)||le(e,t,n,"deepStrictEqual",he)}function ge(e,t,n,r){if(e===t)return!0;if(A(e)&&A(t))return 0===V(e,t);if(B(e)&&B(t))return e.getTime()===t.getTime();if(M(e)&&M(t))return e.source===t.source&&e.global===t.global&&e.multiline===t.multiline&&e.lastIndex===t.lastIndex&&e.ignoreCase===t.ignoreCase;if(null!==e&&"object"==typeof e||null!==t&&"object"==typeof t){if(ne(e)&&ne(t)&&te(e)===te(t)&&!(e instanceof Float32Array||e instanceof Float64Array))return 0===V(new Uint8Array(e.buffer),new Uint8Array(t.buffer));if(A(e)!==A(t))return!1;var o=(r=r||{actual:[],expected:[]}).actual.indexOf(e);return-1!==o&&o===r.expected.indexOf(t)||(r.actual.push(e),r.expected.push(t),function(e,t,n,r){if(null==e||null==t)return!1;if(Z(e)||Z(t))return e===t;if(n&&Object.getPrototypeOf(e)!==Object.getPrototypeOf(t))return!1;var o=me(e),i=me(t);if(o&&!i||!o&&i)return!1;if(o)return ge(e=Q.call(e),t=Q.call(t),n);var a,s,c=K(e),l=K(t);if(c.length!==l.length)return!1;for(c.sort(),l.sort(),s=c.length-1;s>=0;s--)if(c[s]!==l[s])return!1;for(s=c.length-1;s>=0;s--)if(!ge(e[a=c[s]],t[a],n,r))return!1;return!0}(e,t,n,r))}return n?e===t:e==t}function me(e){return"[object Arguments]"==Object.prototype.toString.call(e)}function be(e,t,n){ge(e,t,!1)&&le(e,t,n,"notDeepEqual",be)}function ve(e,t,n){ge(e,t,!0)&&le(e,t,n,"notDeepStrictEqual",ve)}function ye(e,t,n){e!==t&&le(e,t,n,"===",ye)}function we(e,t,n){e===t&&le(e,t,n,"!==",we)}function ke(e,t){if(!e||!t)return!1;if("[object RegExp]"==Object.prototype.toString.call(t))return t.test(e);try{if(e instanceof t)return!0}catch(e){}return!Error.isPrototypeOf(t)&&!0===t.call({},e)}function xe(e,t,n,r){var o;if("function"!=typeof t)throw new TypeError('"block" argument must be a function');"string"==typeof n&&(r=n,n=null),o=function(e){var t;try{e()}catch(e){t=e}return t}(t),r=(n&&n.name?" ("+n.name+").":".")+(r?" "+r:"."),e&&!o&&le(o,n,"Missing expected exception"+r);var i="string"==typeof r,a=!e&&o&&!n;if((!e&&U(o)&&i&&ke(o,n)||a)&&le(o,n,"Got unwanted exception"+r),e&&o&&n&&!ke(o,n)||!e&&o)throw o}function Se(e,t,n){xe(!0,e,t,n)}function _e(e,t,n){xe(!1,e,t,n)}function Ee(e){if(e)throw e}re.AssertionError=ae,T(ae,Error),re.fail=le,re.ok=ue,re.equal=fe,re.notEqual=pe,re.deepEqual=de,re.deepStrictEqual=he,re.notDeepEqual=be,re.notDeepStrictEqual=ve,re.strictEqual=ye,re.notStrictEqual=we,re.throws=Se,re.doesNotThrow=_e,re.ifError=Ee;var Ce=t(Object.freeze({__proto__:null,default:re,AssertionError:ae,fail:le,ok:ue,assert:ue,equal:fe,notEqual:pe,deepEqual:de,deepStrictEqual:he,notDeepEqual:be,notDeepStrictEqual:ve,strictEqual:ye,notStrictEqual:we,throws:Se,doesNotThrow:_e,ifError:Ee})),Ae=Ce,Oe="undefined"!=typeof window;function Te(e){this.hasWindow=e,this.hasIdle=this.hasWindow&&window.requestIdleCallback,this.method=this.hasIdle?window.requestIdleCallback.bind(window):this.setTimeout,this.scheduled=!1,this.queue=[]}Te.prototype.push=function(e){Ae.equal(typeof e,"function","nanoscheduler.push: cb should be type function"),this.queue.push(e),this.schedule()},Te.prototype.schedule=function(){if(!this.scheduled){this.scheduled=!0;var e=this;this.method((function(t){for(;e.queue.length&&t.timeRemaining()>0;)e.queue.shift()(t);e.scheduled=!1,e.queue.length&&e.schedule()}))}},Te.prototype.setTimeout=function(e){setTimeout(e,0,{timeRemaining:function(){return 1}})};var je,ze=function(){var e;return Oe?(window._nanoScheduler||(window._nanoScheduler=new Te(!0)),e=window._nanoScheduler):e=new Te,e},Le=ze(),Ne=Ce;Ie.disabled=!0;try{je=window.performance,Ie.disabled="true"===window.localStorage.DISABLE_NANOTIMING||!je.mark}catch(e){}var $e=Ie;function Ie(e){if(Ne.equal(typeof e,"string","nanotiming: name should be type string"),Ie.disabled)return De;var t=(1e4*je.now()).toFixed()%Number.MAX_SAFE_INTEGER,n="start-"+t+"-"+e;function r(r){var o="end-"+t+"-"+e;je.mark(o),Le.push((function(){var i=null;try{var a=e+" ["+t+"]";je.measure(a,n,o),je.clearMarks(n),je.clearMarks(o)}catch(e){i=e}r&&r(i,e)}))}return je.mark(n),r.uuid=t,r}function De(e){e&&Le.push((function(){e(new Error("nanotiming: performance API unavailable"))}))}var Pe,qe=Ce;Re.disabled=!0;try{Pe=require("perf_hooks").performance,Re.disabled=C.env.DISABLE_NANOTIMING||!Pe.mark}catch(e){}function Re(e){if("undefined"!=typeof window)return $e(e);if(qe.equal(typeof e,"string","nanotiming: name should be type string"),Re.disabled)return Me;var t=(1e4*Pe.now()).toFixed()%Number.MAX_SAFE_INTEGER,n="start-"+t+"-"+e;function r(r){var o="end-"+t+"-"+e;Pe.mark(o);var i=null;try{var a=e+" ["+t+"]";Pe.measure(a,n,o),Pe.clearMarks(n),Pe.clearMarks(o)}catch(e){i=e}r&&r(i,e)}return Pe.mark(n),r.uuid=t,r}function Me(e){e&&e(new Error("nanotiming: performance API unavailable"))}var Fe=function(e,t,n){var r,o=e.length;if(!(t>=o||0===n)){var i=o-(n=t+n>o?o-t:n);for(r=t;r<i;++r)e[r]=e[r+n];e.length=i}},Be=Re,Ue=Ce,He=Ze;function Ze(e){if(!(this instanceof Ze))return new Ze(e);this._name=e||"nanobus",this._starListeners=[],this._listeners={}}Ze.prototype.emit=function(e){Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.emit: eventName should be type string or symbol");for(var t=[],n=1,r=arguments.length;n<r;n++)t.push(arguments[n]);var o=Be(this._name+"('"+e.toString()+"')"),i=this._listeners[e];return i&&i.length>0&&this._emit(this._listeners[e],t),this._starListeners.length>0&&this._emit(this._starListeners,e,t,o.uuid),o(),this},Ze.prototype.on=Ze.prototype.addListener=function(e,t){return Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.on: eventName should be type string or symbol"),Ue.equal(typeof t,"function","nanobus.on: listener should be type function"),"*"===e?this._starListeners.push(t):(this._listeners[e]||(this._listeners[e]=[]),this._listeners[e].push(t)),this},Ze.prototype.prependListener=function(e,t){return Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.prependListener: eventName should be type string or symbol"),Ue.equal(typeof t,"function","nanobus.prependListener: listener should be type function"),"*"===e?this._starListeners.unshift(t):(this._listeners[e]||(this._listeners[e]=[]),this._listeners[e].unshift(t)),this},Ze.prototype.once=function(e,t){Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.once: eventName should be type string or symbol"),Ue.equal(typeof t,"function","nanobus.once: listener should be type function");var n=this;return this.on(e,(function r(){t.apply(n,arguments),n.removeListener(e,r)})),this},Ze.prototype.prependOnceListener=function(e,t){Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.prependOnceListener: eventName should be type string or symbol"),Ue.equal(typeof t,"function","nanobus.prependOnceListener: listener should be type function");var n=this;return this.prependListener(e,(function r(){t.apply(n,arguments),n.removeListener(e,r)})),this},Ze.prototype.removeListener=function(e,t){return Ue.ok("string"==typeof e||"symbol"==typeof e,"nanobus.removeListener: eventName should be type string or symbol"),Ue.equal(typeof t,"function","nanobus.removeListener: listener should be type function"),"*"===e?(this._starListeners=this._starListeners.slice(),n(this._starListeners,t)):(void 0!==this._listeners[e]&&(this._listeners[e]=this._listeners[e].slice()),n(this._listeners[e],t));function n(e,t){if(e){var n=e.indexOf(t);return-1!==n?(Fe(e,n,1),!0):void 0}}},Ze.prototype.removeAllListeners=function(e){return e?"*"===e?this._starListeners=[]:this._listeners[e]=[]:(this._starListeners=[],this._listeners={}),this},Ze.prototype.listeners=function(e){var t="*"!==e?this._listeners[e]:this._starListeners,n=[];if(t)for(var r=t.length,o=0;o<r;o++)n.push(t[o]);return n},Ze.prototype._emit=function(e,t,n,r){if(void 0!==e&&0!==e.length){void 0===n&&(n=t,t=null),t&&(n=void 0!==r?[t].concat(n,r):[t].concat(n));for(var o=e.length,i=0;i<o;i++){var a=e[i];a.apply(a,n)}}};var We=He();function Je(e){return Je="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Je(e)}function Ge(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}function Ve(e,t){for(var n=0;n<t.length;n++){var r=t[n];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}function Ye(e,t,n){return t&&Ve(e.prototype,t),n&&Ve(e,n),Object.defineProperty(e,"prototype",{writable:!1}),e}function Xe(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),Object.defineProperty(e,"prototype",{writable:!1}),t&&Qe(e,t)}function Ke(e){return Ke=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},Ke(e)}function Qe(e,t){return Qe=Object.setPrototypeOf||function(e,t){return e.__proto__=t,e},Qe(e,t)}function et(e,t){if(t&&("object"==typeof t||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");return function(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}(e)}function tt(e){var t=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],(function(){}))),!0}catch(e){return!1}}();return function(){var n,r=Ke(e);if(t){var o=Ke(this).constructor;n=Reflect.construct(r,arguments,o)}else n=r.apply(this,arguments);return et(this,n)}}function nt(e,t){return function(e){if(Array.isArray(e))return e}(e)||function(e,t){var n=null==e?null:"undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(null==n)return;var r,o,i=[],a=!0,s=!1;try{for(n=n.call(e);!(a=(r=n.next()).done)&&(i.push(r.value),!t||i.length!==t);a=!0);}catch(e){s=!0,o=e}finally{try{a||null==n.return||n.return()}finally{if(s)throw o}}return i}(e,t)||ot(e,t)||function(){throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function rt(e){return function(e){if(Array.isArray(e))return it(e)}(e)||function(e){if("undefined"!=typeof Symbol&&null!=e[Symbol.iterator]||null!=e["@@iterator"])return Array.from(e)}(e)||ot(e)||function(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}()}function ot(e,t){if(e){if("string"==typeof e)return it(e,t);var n=Object.prototype.toString.call(e).slice(8,-1);return"Object"===n&&e.constructor&&(n=e.constructor.name),"Map"===n||"Set"===n?Array.from(e):"Arguments"===n||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)?it(e,t):void 0}}function it(e,t){(null==t||t>e.length)&&(t=e.length);for(var n=0,r=new Array(t);n<t;n++)r[n]=e[n];return r}function at(e,t){var n="undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(!n){if(Array.isArray(e)||(n=ot(e))||t&&e&&"number"==typeof e.length){n&&(e=n);var r=0,o=function(){};return{s:o,n:function(){return r>=e.length?{done:!0}:{done:!1,value:e[r++]}},e:function(e){throw e},f:o}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var i,a=!0,s=!1;return{s:function(){n=n.call(e)},n:function(){var e=n.next();return a=e.done,e},e:function(e){s=!0,i=e},f:function(){try{a||null==n.return||n.return()}finally{if(s)throw i}}}}
 /*!
 	 * isobject <https://github.com/jonschlinkert/isobject>
 	 *
