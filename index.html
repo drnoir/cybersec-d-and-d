@@ -503,13 +503,13 @@ Your elected hacker {chosenOne} attempts {action}
 
 [continued]
 
-</tw-passagedata><tw-passagedata pid="8" name="E-Pick Games Escapes" tags="EPick" position="625,400" size="100,100">### Your Hacking done. Here is how you did overall
+</tw-passagedata><tw-passagedata pid="8" name="E-Pick Games Escapes" tags="EPick" position="725,375" size="100,100">### Your Hacking done. Here is how you did overall
 
 ### {points} Points
 
 #### Hack Again?
 
-&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="9" name="Check Maps" tags="" position="1075,725" size="100,100">{embed image: &#39;map.jpg&#39;}
+&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="9" name="Check Maps" tags="" position="1050,750" size="100,100">{embed image: &#39;map.jpg&#39;}
 
 You open the map out to examine and plot your next course of action. 
 You can plan your actions based on this inforamtion. 
@@ -604,7 +604,7 @@ Consider who is best equipped to deal with this task from your team. If you want
 Or do you need to double check on your team skills again?
 &gt;[[Red Team 1 E-Pick Games]] </tw-passagedata><tw-passagedata pid="13" name="You were detected by the CyberSec team" tags="" position="1400,1150" size="100,100"># You lost the game
 
-{embed image: &#39;arrest.jpg&#39;}
+{embed image: &#39;hackplanet.jpg&#39;}
 
 You were detected and failed in your primary missions.
 Your final points were {points}
@@ -689,9 +689,9 @@ You were detected during your extraction of the files. Despite your best efforts
 A truly &#39;EPick&#39; victory!
 
 ### Play Again?
-&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="17" name="The Total Halibut Collective Attacks Blue Team" tags="Collective" position="1625,400" size="100,100">action: &#39;DDOS Attack&#39;
+&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="17" name="The Total Halibut Collective Attacks Blue Team" tags="Collective" position="1675,375" size="100,100">action: &#39;DDOS Attack&#39;
 chosenOne:&#39;J.K Ackermano&#39;
-attackType:&#39;Hacking&#39;
+actionType:&#39;Hacking&#39;
 --
 
 {sound effect: &#39;hum&#39;, volume: 0.2}
@@ -996,7 +996,7 @@ It is important you succeed in this, as this is your core mission. This is an at
 {dropdown menu for: &#39;chosenOne&#39;, choices: [&#39;J.K Ackerman&#39;, &#39;Tim Stew&#39;, &#39;Griff Simmons&#39; ,&#39;Zoe Payne&#39;]}
 
 &gt;[[Extract Comprimising Info from the server]]
-</tw-passagedata><tw-passagedata pid="26" name="Extract Comprimising Info from the server" tags="Collective" position="2325,1050" size="100,100">finalMission:0
+</tw-passagedata><tw-passagedata pid="26" name="Extract Comprimising Info from the server" tags="Collective" position="2275,1025" size="100,100">finalMission:0
 --
 
 [if chosenOne === &quot;&#39;J.K Ackerman&quot;]
@@ -1115,7 +1115,7 @@ Special - Admin Access </tw-passagedata><tw-passagedata pid="29" name="Start Shi
 
 {embed image: &#39;office.jpg&#39;}
 
-You have picked to defend Felontronc Barts.
+## You have picked to defend Felontronc Barts.
 
 Your objective is defend the Felontronic Barts system for a week.
 
@@ -1123,8 +1123,9 @@ Each shift there will be a different random attack from red teams as you update 
 
 You have to protect the Felontronic Barts network against these attacks by choosing who to put on shift each day. You will recieve information each day on the type of attack that is incoming so you can choose who you think will be the best line of defence. You win if you have more successful defences than successful attacks.       
 
-&gt;[[Start the night shift]]</tw-passagedata><tw-passagedata pid="30" name="Start the night shift" tags="defence" position="2450,350" size="100,100">randomAttackRoll: random.d6
+&gt;[[Start the night shift]]</tw-passagedata><tw-passagedata pid="30" name="Start the night shift" tags="defence" position="2525,350" size="100,100">randomAttackRoll: random.d6
 day : day + 1
+actionType:&#39;Hacking&#39;
 --
 
 {sound effect: &#39;hum&#39;, volume: 0.2}
@@ -1132,7 +1133,6 @@ day : day + 1
 
 {embed image: &#39;night.jpg&#39;}
 
-[after 1 second]
 ## Cyberattack Incoming!
 
 You recieve intel from your cybersecurity lead about an oncoming attack.
@@ -1201,14 +1201,12 @@ engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;);
 
 [continue]
 
-
-[after 2 second]
 Who will you choose to defend against this attack tonight?
 {dropdown menu for: &#39;chosenOne&#39;, choices: [&#39;Toby Volleyballs&#39;, &#39;Christopher Goldstein&#39;, &#39;James le Savage&#39;,&#39;Rich Punt&#39;]}
 
 &gt;[[Attempt your Defence]] 
 
-[continued]</tw-passagedata><tw-passagedata pid="31" name="Attempt your Defence" tags="defence" position="2550,125" size="100,100">calcAttempt :0
+</tw-passagedata><tw-passagedata pid="31" name="Attempt your Defence" tags="defence" position="2550,125" size="100,100">calcAttempt :0
 cost: random.d20*100
 --
 
@@ -1336,21 +1334,16 @@ engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod)
 
 [continue]
 
-[after 1 second]
+
 You have chosen {chosenOne} to perform the defence of {randomAttack}
 which is a {actionDifficulty} level cybersecurity attack of type {actionType} which requires a roll more than {difficultyCheck} to succeed.
 
 You have the modifers of {hackingMod} Hacking, a {socialMod} social modifer and a {infilMod} infiltration bonus. These are all included within the hack attempt. 
-[continued]
 
-
-[after 2 second]
 Your elected cybersecurity professional {chosenOne} attempts to defemd against the {randomAttack}
-[continued]
+
 
 [if calcAttempt&gt;difficultyCheck]
-
-[after 4 second]
 
 {sound effect: &#39;success&#39;, volume: 0.8}
 
@@ -1372,23 +1365,16 @@ Your elected cybersecurity professional {chosenOne} attempts to defemd against t
 
 [continued]
 
-</tw-passagedata><tw-passagedata pid="32" name="Felontronic Barts Successfully Defends" tags="defence" position="2150,375" size="100,100">daysSuccess: daysSuccess + 1
+</tw-passagedata><tw-passagedata pid="32" name="Felontronic Barts Successfully Defends" tags="defence" position="2250,400" size="100,100">daysSuccess: daysSuccess + 1
 --
 
 {embed image: &#39;team.jpg&#39;}
 
-[after 2 second]
 You successfully defended Felontronic Barts tonight so your total succesful operational days are now at {daysSuccess}
 
 You defended against {randomAttack}.
-
 {chosenOne} was able to successfully defend against {randomAttack}
-
 Your days of successful defence are now at {daysSuccess}
-
-[continued]
-
-[after 3 second]
 
 [if day&lt;7]
 It&#39;s day {day} of 7. Another day another dollar. Time to prepare for the next night shift....
@@ -1412,7 +1398,7 @@ The week has been a total meltdown for Felontronic Barts. With more successful a
 
 [continue]
 
-[continued]
+
 
 </tw-passagedata><tw-passagedata pid="33" name="Felontronic Barts fails in their defence" tags="defence" position="2825,250" size="100,100">daysFailure: daysFailure+ 1
 totalcost: totalcost + cost
@@ -1420,16 +1406,12 @@ totalcost: totalcost + cost
 
 {embed image: &#39;team.jpg&#39;}
 
-[after 2 second]
 You failed at defending Felontronic Barts tonight so your total succesful operational days are now at {daysSuccess} and you have failed in defence {daysFailure}
 
 You failed to defend against {randomAttack}.
 
 {chosenOne} was unable to successfully defend against {randomAttack}
 
-[continued]
-
-[after 3 second]
 [if day&lt;7]
 It&#39;s day {day} of 7. Another day another dollar. Time to prepare for the next night shift....
 
@@ -1451,7 +1433,7 @@ The week has been a total meltdown for Felontronic Barts. With more successful a
 
 [continue]
 
-[continued]
+
 
 </tw-passagedata><tw-passagedata pid="34" name="Take a break, Team Blue wins" tags="defence" position="1925,200" size="100,100">{ambient sound: &#39;win&#39; , volume: 0.5}
 
@@ -1461,7 +1443,7 @@ The week has been a total meltdown for Felontronic Barts. With more successful a
 Another day another doller for the beleagured cybersecurity team at Felontropic Barts towers. They retire and earn a well earned break.
 
 ### Play Again?
-&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="35" name="You failed in your defence" tags="defence" position="2450,700" size="100,100"># You lost the game
+&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="35" name="You failed in your defence" tags="defence" position="2375,650" size="100,100"># You lost the game
 
 {embed image: &#39;faFail.jpg&#39;}
 
