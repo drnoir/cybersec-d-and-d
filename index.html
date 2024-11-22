@@ -155,7 +155,7 @@ Their goals are to obtain, and then release to the world hard evidence of their 
 
 Since the goal is to make it public, and the members of the collective are driven by ideology, they aren&#39;t afriad of being caught! 
 
-&gt;[[Red Team 2 The Total Hallibut Collective]]</tw-passagedata><tw-passagedata pid="3" name="Defend" tags="defence" position="1675,50" size="100,100">{ambient sound: &#39;defence&#39;, volume: 0.5}
+&gt;[[Red Team 2 The Total Hallibut Collective]]</tw-passagedata><tw-passagedata pid="3" name="Defend" tags="defence" position="1675,50" size="100,100">{ambient sound: &#39;defence&#39;, volume: 0.4}
 
 
 ## You are going to Defend 
@@ -688,7 +688,7 @@ You were detected during your extraction of the files. Despite your best efforts
 A truly &#39;EPick&#39; victory!
 
 ### Play Again?
-&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="17" name="The Total Halibut Collective Attacks Blue Team" tags="Collective" position="1825,475" size="100,100">action: &#39;DDOS Attack&#39;
+&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="17" name="The Total Halibut Collective Attacks Blue Team" tags="Collective" position="1775,375" size="100,100">action: &#39;DDOS Attack&#39;
 chosenOne:&#39;J.K Ackermano&#39;
 attackType:&#39;Hacking&#39;
 --
@@ -1071,7 +1071,7 @@ Whale does not forgive, Whale does not forget...
 
 ### Toby Volleyballs - SysAdmin
 
-{embed image: &#39;Toby.jpg&#39;}
+{embed image: &#39;toby.jpg&#39;}
 
 - Hacking + 3
 - Social 0
@@ -1109,7 +1109,6 @@ Special - Javascript developer
 Special - Admin Access </tw-passagedata><tw-passagedata pid="29" name="Start Shift at Felontronic Barts" tags="defence" position="2175,150" size="100,100">team:3
 --
 
-{ambient sound: &#39;defence&#39; , volume: 0.3}
 
 ## Felontronic Barts, It is time to defend.
 
@@ -1123,9 +1122,13 @@ Each shift there will be a different random attack from red teams as you update 
 
 You have to protect the Felontronic Barts network against these attacks by choosing who to put on shift each day. You will recieve information each day on the type of attack that is incoming so you can choose who you think will be the best line of defence. You win if you have more successful defences than successful attacks.       
 
-&gt;[[Start the night shift]]</tw-passagedata><tw-passagedata pid="30" name="Start the night shift" tags="defence" position="2375,300" size="100,100">randomAttackRoll: random.d6
+&gt;[[Start the night shift]]</tw-passagedata><tw-passagedata pid="30" name="Start the night shift" tags="defence" position="2400,375" size="100,100">randomAttackRoll: random.d6
 day : day + 1
 --
+
+{sound effect: &#39;hum&#39;, volume: 0.2}
+{sound effect: &#39;keyboard&#39;, volume: 0.2}
+
 {embed image: &#39;night.jpg&#39;}
 
 [after 1 second]
@@ -1198,10 +1201,9 @@ engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;);
 [continue]
 
 
-
 [after 2 second]
 Who will you choose to defend against this attack tonight?
-{dropdown menu for: &#39;chosenOne&#39;, choices: [&#39;Toby Volleyballs&#39;, &#39;Christopher Goldstein&#39;, &#39;James le Savage&#39;,&#39;Richard Hunt&#39;]}
+{dropdown menu for: &#39;chosenOne&#39;, choices: [&#39;Toby Volleyballs&#39;, &#39;Christopher Goldstein&#39;, &#39;James le Savage&#39;,&#39;Rich Punt&#39;]}
 
 &gt;[[Attempt your Defence]]
 
@@ -1311,7 +1313,7 @@ engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod)
 
 [continue]
 
-[if chosenOne === &quot;Richard Punt&quot;]
+[if chosenOne === &quot;Rich Punt&quot;]
 
 [JavaScript]
 engine.state.set(&#39;hackingMod&#39;, 2);
@@ -1450,9 +1452,7 @@ The week has been a total meltdown for Felontronic Barts. With more successful a
 
 [continued]
 
-</tw-passagedata><tw-passagedata pid="34" name="Take a break, Team Blue wins" tags="defence" position="1925,200" size="100,100">{embed image: &#39;epickwin.jpg&#39;}
-
-{ambient sound: &#39;win&#39; , volume: 0.5}
+</tw-passagedata><tw-passagedata pid="34" name="Take a break, Team Blue wins" tags="defence" position="1925,200" size="100,100">{ambient sound: &#39;win&#39; , volume: 0.5}
 
 {embed image: &#39;faWin.jpg&#39;}
 
