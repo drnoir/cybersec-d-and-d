@@ -52,7 +52,33 @@ input[type=text], select {
     background: black;
     color: white;
   font-family: "Courier New", " monospace";
-}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="Collective" color="red"></tw-tag><tw-tag name="EPick" color="blue"></tw-tag><tw-tag name="defence" color="green"></tw-tag><tw-passagedata pid="1" name="CyberD&amp;D" tags="" position="975,275" size="100,100">config.style.page.font: &quot;Courier New/ monospace 18&quot;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">function RandomAttack() {
+    if (randomAttackRoll === 1) {
+        engine.state.set('randomAttack', 'Script Kiddie');
+        engine.state.set('actionDifficulty', 3);
+        engine.state.set('actionType', 'Hacking');
+    } else if (randomAttackRoll === 2) {
+        engine.state.set('randomAttack', 'Biometric Spoofing');
+        engine.state.set('actionDifficulty', 5);
+        engine.state.set('actionType', 'Infiltration');
+    } else if (randomAttackRoll === 3) {
+        engine.state.set('randomAttack', 'Phishing Email');
+        engine.state.set('actionDifficulty', 2);
+        engine.state.set('actionType', 'Hacking');
+    } else if (randomAttackRoll === 4) {
+        engine.state.set('randomAttack', 'Picking Locks');
+        engine.state.set('actionDifficulty', 3);
+        engine.state.set('actionType', 'Infiltration');
+    } else if (randomAttackRoll === 5) {
+        engine.state.set('randomAttack', 'Social Engineering');
+        engine.state.set('actionDifficulty', 3);
+        engine.state.set('actionType', 'Social');
+    } else if (randomAttackRoll === 6) {
+        engine.state.set('randomAttack', 'DDOS Attack');
+        engine.state.set('actionDifficulty', 2);
+        engine.state.set('actionType', 'Hacking');
+    }
+}</script><tw-tag name="Collective" color="red"></tw-tag><tw-tag name="EPick" color="blue"></tw-tag><tw-tag name="defence" color="green"></tw-tag><tw-passagedata pid="1" name="CyberD&amp;D" tags="" position="975,275" size="100,100">config.style.page.font: &quot;Courier New/ monospace 18&quot;
 config.style.page.color: &quot;#03A062 on #000&quot;
 config.style.page.link.color: &quot;#fff&quot;
 config.style.page.link.lineColor: &quot;red-8&quot;
@@ -502,7 +528,7 @@ Do you feel ready to return back to hacking or would you like to double check yo
 &gt;[[Escape from the building]]
 [continued]
 
-</tw-passagedata><tw-passagedata pid="10" name="E-Pick Successfully Attacks" tags="EPick" position="700,750" size="100,100">points: points+10
+</tw-passagedata><tw-passagedata pid="10" name="E-Pick Successfully Attacks" tags="EPick" position="625,725" size="100,100">points: points+10
 --
 
 You gained 10 points by successfully
@@ -856,7 +882,7 @@ Your elected hacker {chosenOne} attempts {action}
 
 [continued]
 
-</tw-passagedata><tw-passagedata pid="20" name="The Total Halibut collective Successfully Attacks" tags="Collective" position="1750,550" size="100,100">points: points+10
+</tw-passagedata><tw-passagedata pid="20" name="The Total Halibut collective Successfully Attacks" tags="Collective" position="1775,600" size="100,100">points: points+10
 --
 
 You gained 10 points by successfully
@@ -878,7 +904,7 @@ You have now succesfully infiltrated Floor 1 and move to the 2nd floor
 &gt;[[Modify Attack]] 
 &gt;[[Attempt to Attack]] 
 &gt;[[Check Maps]] 
-&gt;[[Escape from the building]]</tw-passagedata><tw-passagedata pid="21" name="The Total Halibut collective Fails in their Attack" tags="Collective" position="1450,750" size="100,100">points: points-10
+&gt;[[Escape from the building]]</tw-passagedata><tw-passagedata pid="21" name="The Total Halibut collective Fails in their Attack" tags="Collective" position="1425,725" size="100,100">points: points-10
 --
 
 You lost -10 points by failing to
@@ -1039,7 +1065,7 @@ Whale does not forgive, Whale does not forget...
 ### Play Again?
 &gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="28" name="Meet the Team" tags="defence" position="1900,50" size="100,100"># The Felontronic Barts Cybersecurity Team  
 
-{embed image: &#39;barts.jpg&#39;}
+{embed image: &#39;office.jpg&#39;}
 
 &gt;[[Start Shift at Felontronic Barts]]
 
@@ -1080,14 +1106,15 @@ Special - Javascript developer
 - Social -2
 - Infilitration +4
 
-Special - Admin Access </tw-passagedata><tw-passagedata pid="29" name="Start Shift at Felontronic Barts" tags="defence" position="2225,100" size="100,100">team:3
+Special - Admin Access </tw-passagedata><tw-passagedata pid="29" name="Start Shift at Felontronic Barts" tags="defence" position="2175,150" size="100,100">team:3
 --
 
 {ambient sound: &#39;defence&#39; , volume: 0.3}
 
 ## Felontronic Barts, It is time to defend.
 
-{embed image: &#39;team.jpg&#39;}
+{embed image: &#39;office.jpg&#39;}
+
 You have picked to defend Felontronc Barts.
 
 Your objective is defend the Felontronic Barts system for a week.
@@ -1096,79 +1123,84 @@ Each shift there will be a different random attack from red teams as you update 
 
 You have to protect the Felontronic Barts network against these attacks by choosing who to put on shift each day. You will recieve information each day on the type of attack that is incoming so you can choose who you think will be the best line of defence. You win if you have more successful defences than successful attacks.       
 
-&gt;[[Start the night shift]]</tw-passagedata><tw-passagedata pid="30" name="Start the night shift" tags="defence" position="2475,475" size="100,100">randomAttackRoll: random.d6
-randomAttack: &#39;&#39;
+&gt;[[Start the night shift]]</tw-passagedata><tw-passagedata pid="30" name="Start the night shift" tags="defence" position="2375,300" size="100,100">randomAttackRoll: random.d6
 day : day + 1
 --
+{embed image: &#39;night.jpg&#39;}
 
 [after 1 second]
-The sun is setting and the hackers are out and about. 
-[continued]
- 
-[after 3 second]
-You recieve intel from your cybersecurity lead about an oncoming attack.
-[continued]
+## Cyberattack Incoming!
 
-[after 4 second]
+You recieve intel from your cybersecurity lead about an oncoming attack.
+
 [if randomAttackRoll === 1]
-A script kiddie, armed with a copied SQL injection string from an online forum, attempts to exploit a vulnerability in a multiplayer game’s login system. They enter malicious code into the username field, hoping to bypass authentication or gain unauthorized access to player data. 
+A script kiddie, armed with a copied SQL injection string from an online forum, attempts to exploit a vulnerability in a multiplayer game’s login system. They enter malicious code into the username field, hoping to bypass authentication or gain unauthorized access to player data.
+
 [JavaScript]
-engine.state.set(&#39;randomAttack&#39;, &#39;Script Kiddie&#39;);
-engine.state.set(&#39;actionDifficulty&#39;, 3);
+engine.state.set(&#39;actionDifficulty&#39;,2);
 engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;);
 [continue]
 
+[continue]
 
 [if randomAttackRoll === 2]
 A skilled hacker targets a state-of-the-art biometric ID system, attempting to spoof the authentication process by using a high-resolution replica of a fingerprint. They employ advanced techniques like 3D printing and latent print lifting, hoping to trick the scanner into granting access.
+
 [JavaScript]
-engine.state.set(&#39;randomAttack&#39;, &#39;Biometric Spoofing&#39;);
-engine.state.set(&#39;actionDifficulty&#39;, 5);
+engine.state.set(&#39;actionDifficulty&#39;,4);
 engine.state.set(&#39;actionType&#39;, &#39;Infilitration&#39;);
 [continue]
+
+[continue]
+
 
 [if randomAttackRoll === 3]
 A hacker crafts a phishing email, posing as a trusted organization to deceive the recipient into clicking a malicious link. The email exploits urgency, such as claiming account suspension, to prompt the user to input sensitive credentials on a counterfeit login page. If successful, the hacker gains unauthorized access, demonstrating the effectiveness of social engineering tactics in cyberattacks.
+
 [JavaScript]
-engine.state.set(&#39;randomAttack&#39;, &#39;Phishing Email&#39;);
-engine.state.set(&#39;actionDifficulty&#39;, 2);
+engine.state.set(&#39;actionDifficulty&#39;,3);
 engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;);
 [continue]
+
+[continue]
+
 
 [if randomAttackRoll === 4]
 A hacker engages in a physical lockpicking attack, using specialized tools like tension wrenches and picks to manipulate the internal mechanisms of a high-security lock. The goal is to bypass physical security measures and gain unauthorized access to sensitive areas, such as server rooms or restricted offices. 
+
 [JavaScript]
-engine.state.set(&#39;randomAttack&#39;, &#39;Picking Locks&#39;);
-engine.state.set(&#39;actionDifficulty&#39;, 3);
-engine.state.set(&#39;actionType&#39;, &#39;Infilitration&#39;);
+engine.state.set(&#39;actionDifficulty&#39;,3);
+engine.state.set(&#39;actionType&#39;, &#39;Infiltration&#39;);
 [continue]
+
+[continue]
+
 
 [if randomAttackRoll === 5]
 A hacker has posed as an in-game moderator and contacts a player, claiming their account has been flagged for suspicious activity. They request the player’s login credentials to &quot;verify their identity&quot; and offer rewards for cooperation. By preying on the player’s trust in authority and desire to protect their account, the hacker could gain unauthorized access to valuable in-game assets.
+
 [JavaScript]
-engine.state.set(&#39;randomAttack&#39;, &#39;Social Engineering&#39;);
-engine.state.set(&#39;actionDifficulty&#39;, 3);
+engine.state.set(&#39;actionDifficulty&#39;,4);
 engine.state.set(&#39;actionType&#39;, &#39;Social&#39;);
 [continue]
 
+[continue]
+
+
 [if randomAttackRoll === 6]
 a group of hackers orchestrates a DDoS attack on the game’s main servers during a high-stakes tournament. By flooding the server with massive traffic from botnets, they aim to disrupt gameplay and cause chaos for the top competitors. Their goal? To eliminate fair play and claim dominance in the underbelly of the gaming community.
+
 [JavaScript]
-engine.state.set(&#39;randomAttack&#39;, &#39;DDOS Attack&#39;);
-engine.state.set(&#39;actionDifficulty&#39;, 2);
+engine.state.set(&#39;difficultyCheck&#39;,4);
 engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;);
 [continue]
 
-[continued]
+[continue]
 
-[after 5 second]
-## Cyberattack Incoming!
 
-Intel has come to the cybersecurity desk of an imminent {randomAttack} 
-of type {actionType} The team convenes and decides who is best equipped to deal with it
 
-## Who will you choose to perform this action from your team?
-
+[after 2 second]
+Who will you choose to defend against this attack tonight?
 {dropdown menu for: &#39;chosenOne&#39;, choices: [&#39;Toby Volleyballs&#39;, &#39;Christopher Goldstein&#39;, &#39;James le Savage&#39;,&#39;Richard Hunt&#39;]}
 
 &gt;[[Attempt your Defence]]
@@ -1177,41 +1209,85 @@ of type {actionType} The team convenes and decides who is best equipped to deal 
 cost: random.d20*100
 --
 
-### You Begin your Defence!
+{embed image: &#39;team.jpg&#39;}
 
+### You Begin your Defence!
 [if actionDifficulty === 1]
 
 [JavaScript]
 engine.state.set(&#39;difficultyCheck&#39;, 10);
 [continue]
-
+[continue]
 
 [if actionDifficulty === 2]
-
 [JavaScript]
 engine.state.set(&#39;difficultyCheck&#39;, 12);
+[continue]
 [continue]
 
 
 [if actionDifficulty === 3]
-
 [JavaScript]
 engine.state.set(&#39;difficultyCheck&#39;, 14);
 [continue]
+[continue]
 
 [if actionDifficulty === 4]
-
 [JavaScript]
 engine.state.set(&#39;difficultyCheck&#39;, 16);
 [continue]
-
+[continue]
 
 [if actionDifficulty === 5]
-
 [JavaScript]
 engine.state.set(&#39;difficultyCheck&#39;, 20);
 [continue]
+[continue]
 
+[if randomAttackRoll === 1]
+[JavaScript]
+engine.state.set(&#39;randomAttack&#39;, &#39;Script Kiddie&#39;);
+[continue]
+[continue]
+
+
+[if randomAttackRoll === 2]
+[JavaScript]
+engine.state.set(&#39;randomAttack&#39;, &#39;Biometric Spoofing&#39;);
+[continue]
+[continue]
+
+
+[if randomAttackRoll === 3]
+[JavaScript]
+engine.state.set(&#39;randomAttack&#39;, &#39;Phishing Email&#39;);
+[continue]
+
+[continue]
+
+[if randomAttackRoll === 4]
+[JavaScript]
+engine.state.set(&#39;randomAttack&#39;, &#39;Lockpick Attack&#39;);
+[continue]
+
+[continue]
+
+
+[if randomAttackRoll === 5]
+
+[JavaScript]
+engine.state.set(&#39;randomAttack&#39;, &#39;Social Engineering&#39;);
+[continue]
+
+[continue]
+
+[if randomAttackRoll === 6]
+
+[JavaScript]
+engine.state.set(&#39;randomAttack&#39;, &#39;DDOS Attack&#39;);
+[continue]
+
+[continue]
 
 [if chosenOne === &quot;Toby Volleyballs&quot;]
 
@@ -1220,6 +1296,8 @@ engine.state.set(&#39;hackingMod&#39;, 3);
 engine.state.set(&#39;socialMod&#39;, 0);
 engine.state.set(&#39;infilMod&#39;,2);
 engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod);
+[continue]
+
 [continue]
 
 [if chosenOne === &quot;Christopher Goldstein&quot;]
@@ -1231,6 +1309,8 @@ engine.state.set(&#39;infilMod&#39;,2);
 engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod); 
 [continue]
 
+[continue]
+
 [if chosenOne === &quot;Richard Punt&quot;]
 
 [JavaScript]
@@ -1238,6 +1318,8 @@ engine.state.set(&#39;hackingMod&#39;, 2);
 engine.state.set(&#39;socialMod&#39;, -2);
 engine.state.set(&#39;infilMod&#39;, 4);
 engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod); 
+[continue]
+
 [continue]
 
 [if chosenOne === &quot;James le Savage&quot;]
@@ -1249,6 +1331,8 @@ engine.state.set(&#39;infilMod&#39;, 5);
 engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod); 
 [continue]
 
+[continue]
+
 [after 1 second]
 You have chosen {chosenOne} to perform the defence of {randomAttack}
 which is a {actionDifficulty} level cybersecurity attack of type {actionType} which requires a roll more than {difficultyCheck} to succeed.
@@ -1258,7 +1342,7 @@ You have the modifers of {hackingMod} Hacking, a {socialMod} social modifer and 
 
 
 [after 2 second]
-Your elected cybersecurity professional {chosenOne} attempts {randomAttack}
+Your elected cybersecurity professional {chosenOne} attempts to defemd against the {randomAttack}
 [continued]
 
 [if calcAttempt&gt;difficultyCheck]
@@ -1288,6 +1372,8 @@ Your elected cybersecurity professional {chosenOne} attempts {randomAttack}
 </tw-passagedata><tw-passagedata pid="32" name="Felontronic Barts Successfully Defends" tags="defence" position="2150,375" size="100,100">daysSuccess: daysSuccess + 1
 --
 
+{embed image: &#39;team.jpg&#39;}
+
 [after 2 second]
 You successfully defended Felontronic Barts tonight so your total succesful operational days are now at {daysSuccess}
 
@@ -1300,18 +1386,25 @@ Your days of successful defence are now at {daysSuccess}
 [continued]
 
 [after 3 second]
+
 [if day&lt;7]
 It&#39;s day {day} of 7. Another day another dollar. Time to prepare for the next night shift....
-&gt;[[Start the night shift]] 
+
+&gt;[[Start the night shift]]
+
 [continue]
 
 [if day === 7 &amp;&amp; daysSuccess&gt;4]
 You have now succesfully defended Felontronic Barts for a total of {daysSuccess}
 It has been an eventful week, with weekend overtime to boot but you can now 
+
 &gt;[[Take a break, Team Blue wins]]
+
+[continue]
 
 [if day === 7 &amp;&amp; daysFailed&gt;4]
 The week has been a total meltdown for Felontronic Barts. With more successful attacks than defence from the team. A total of {daysSuccess} successful defences were not enough to balance out the {daysFailure} and the CEO Bartrum Russell has arranged a meeting with you on monday morning. Heads will roll for this.
+
 &gt;[[You failed in your defence]]
 
 [continue]
@@ -1321,6 +1414,8 @@ The week has been a total meltdown for Felontronic Barts. With more successful a
 </tw-passagedata><tw-passagedata pid="33" name="Felontronic Barts fails in their defence" tags="defence" position="2825,250" size="100,100">daysFailure: daysFailure+ 1
 totalcost: totalcost + cost
 --
+
+{embed image: &#39;team.jpg&#39;}
 
 [after 2 second]
 You failed at defending Felontronic Barts tonight so your total succesful operational days are now at {daysSuccess} and you have failed in defence {daysFailure}
@@ -1334,15 +1429,20 @@ You failed to defend against {randomAttack}.
 [after 3 second]
 [if day&lt;7]
 It&#39;s day {day} of 7. Another day another dollar. Time to prepare for the next night shift....
+
 &gt;[[Start the night shift]] 
+
 [continue]
 
 [if day === 7 &amp;&amp; daysSuccess&gt;4]
 You have now succesfully defended Felontronic Barts for a total of {daysSuccess}
 It has been an eventful week, with weekend overtime to boot but you can now 
+
 &gt;[[Take a break, Team Blue wins]]
 
-[if day === 7 &amp;&amp; daysFailed&gt;4]
+[continue]
+
+[if day === 7 &amp;&amp; daysFailure&gt;4]
 The week has been a total meltdown for Felontronic Barts. With more successful attacks than defence from the team. A total of {daysSuccess} successful defences were not enough to balance out the {daysFailure} and the CEO Bartrum Russell has arranged a meeting with you on monday morning. Heads will roll for this.
 &gt;[[You failed in your defence]]
 
@@ -1354,17 +1454,21 @@ The week has been a total meltdown for Felontronic Barts. With more successful a
 
 {ambient sound: &#39;win&#39; , volume: 0.5}
 
+{embed image: &#39;faWin.jpg&#39;}
+
 # Felontropic Barts wins the game
 Another day another doller for the beleagured cybersecurity team at Felontropic Barts towers. They retire and earn a well earned break.
 
 ### Play Again?
-&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="35" name="You failed in your defence" tags="defence" position="2550,825" size="100,100"># You lost the game
+&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="35" name="You failed in your defence" tags="defence" position="2450,700" size="100,100"># You lost the game
 
-{embed image: &#39;arrest.jpg&#39;}
+{embed image: &#39;faFail.jpg&#39;}
 
 You failed to launch a proper defence against the multiple attack pre update leading to huge data losses. Your failures cost Felontropic Barts {totalCosts} in damages as well as loss of reputation.
 
 Your final operational days were {daysSuccess} but you failed more with {daysFailure}
+
+{embed image: &#39;bertram.jpg&#39;}
 
 Bartram Russell will not be happy. You prepare your CV&#39;s for the next job.
 
