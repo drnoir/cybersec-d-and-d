@@ -33,7 +33,7 @@
             repeatCount="indefinite"
         />
 	</line>
-</svg></div></div></div></form><tw-storydata name="Cybersec D  &amp; D" startnode="1" creator="Twine" creator-version="2.7.0" format="Chapbook" format-version="1.2.3" ifid="67B5ACA6-4782-4159-B2F5-F22371E4ECA3" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#backdrop {
+</svg></div></div></div></form><tw-storydata name="Cybersec D  &amp; D" startnode="1" creator="Twine" creator-version="2.10.0" format="Chapbook" format-version="1.2.3" ifid="67B5ACA6-4782-4159-B2F5-F22371E4ECA3" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">#backdrop {
    background-image: url("backdrop.jpg");
    background-repeat: no-repeat;
     background-attachment: scroll;
@@ -219,7 +219,7 @@ Special - Used to work on the software that FB&#39;s network runs on
 - Infilitration -2
 - Special - Access to all Teams
 
-</tw-passagedata><tw-passagedata pid="5" name="Red Team 2 The Total Hallibut Collective" tags="Collective" position="1375,175" size="100,100">team:2
+</tw-passagedata><tw-passagedata pid="5" name="Red Team 2 The Total Hallibut Collective" tags="Collective" position="1475,275" size="100,100">team:2
 --
 
 {ambient sound: &#39;siren&#39; , volume: 0.3}
@@ -379,7 +379,7 @@ engine.state.set(&#39;difficultyCheck&#39;, 16);
 [if actionDifficulty === 5]
 
 [JavaScript]
-engine.state.set(&#39;difficultyCheck&#39;, 20);
+engine.state.set(&#39;difficultyCheck&#39;, 18);
 [continue]
 
 
@@ -439,7 +439,20 @@ engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;)
 engine.state.set(&#39;hackingMod&#39;, -2);
 engine.state.set(&#39;socialMod&#39;, 5);
 engine.state.set(&#39;infilMod&#39;,2);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod);
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Social&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+socialMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
+
 [continue]
 
 [if chosenOne === &quot;Lauren Meiler&quot;]
@@ -448,7 +461,20 @@ engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod)
 engine.state.set(&#39;hackingMod&#39;, 4);
 engine.state.set(&#39;socialMod&#39;, 2);
 engine.state.set(&#39;infilMod&#39;,3);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod); 
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Social&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+socialMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
+
 [continue]
 
 [if chosenOne === &quot;Andy Wilkins&quot;]
@@ -457,7 +483,20 @@ engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod)
 engine.state.set(&#39;hackingMod&#39;, 5);
 engine.state.set(&#39;socialMod&#39;, -1);
 engine.state.set(&#39;infilMod&#39;,2);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod); 
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Social&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+socialMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
+
 [continue]
 
 [if chosenOne === &quot;Georgina Takai&quot;]
@@ -466,12 +505,25 @@ engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod)
 engine.state.set(&#39;hackingMod&#39;, 2);
 engine.state.set(&#39;socialMod&#39;, 1);
 engine.state.set(&#39;infilMod&#39;,-2);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod); 
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Social&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+socialMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
+
 [continue]
 
 [after 1 second]
 You have chosen {chosenOne} to perform the feat of {action}
-which is a {actionDifficulty} level cybersecurity problem of type {actionType} which requires a roll more than {difficultyCheck} to succeed.
+which is a {actionDifficulty} level cybersecurity problem of type {actionType} which requires a roll more than or equal to {difficultyCheck} to succeed.
 
 You have the modifers of {hackingMod} Hacking, a  {socialMod} social modifer and a {infilMod} infiltration bonus. These are all included within the hack attempt. 
 [continued]
@@ -481,7 +533,7 @@ You have the modifers of {hackingMod} Hacking, a  {socialMod} social modifer and
 Your elected hacker {chosenOne} attempts {action}
 [continued]
 
-[if calcAttempt&gt;difficultyCheck]
+[if calcAttempt&gt;=difficultyCheck]
 
 [after 4 second]
 
@@ -490,8 +542,7 @@ Your elected hacker {chosenOne} attempts {action}
 {embed image: &#39;succeed.jpg&#39;}
 
 ### You rolled a {calcAttempt} and you Succeeded in  {action}
-
-&gt;[[E-Pick Successfully Attacks]]
+&gt;[[E-Pick Successfully Attacks]] 
 
 [else]
 
@@ -505,7 +556,7 @@ Your elected hacker {chosenOne} attempts {action}
 
 [continued]
 
-</tw-passagedata><tw-passagedata pid="8" name="E-Pick Games Escapes" tags="EPick" position="725,375" size="100,100">### Your Hacking done. Here is how you did overall
+</tw-passagedata><tw-passagedata pid="8" name="E-Pick Games Escapes" tags="EPick" position="825,500" size="100,100">### Your Hacking done. Here is how you did overall
 
 ### {points} Points
 
@@ -574,6 +625,7 @@ Your points overall are at {points}
 [else]
 Your Points have fallen to {points}
 You are detected by the security team who isolate you and arrest you.
+
 &gt;[[You were detected by the CyberSec team]]
 
 [continued]
@@ -780,7 +832,7 @@ engine.state.set(&#39;difficultyCheck&#39;, 16);
 [if actionDifficulty === 5]
 
 [JavaScript]
-engine.state.set(&#39;difficultyCheck&#39;, 20);
+engine.state.set(&#39;difficultyCheck&#39;, 18);
 [continue]
 
 [if action === &#39;DDOS Attacks&#39;]
@@ -808,6 +860,13 @@ engine.state.set(&#39;actionDifficulty&#39;, 5);
 engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;);
 [continue]
 
+[if action === &#39;Hacking Computers&#39;]
+[JavaScript]
+engine.state.set(&#39;actionDifficulty&#39;, 4);
+engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;);
+[continue]
+
+
 [if action === &#39;Running Scripts&#39;]
 [JavaScript]
 engine.state.set(&#39;actionDifficulty&#39;, 5);
@@ -820,13 +879,24 @@ engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;);
 engine.state.set(&#39;actionDifficulty&#39;, 4);
 engine.state.set(&#39;actionType&#39;, &#39;Hacking&#39;)
 [continue]
-[if chosenOne === &quot;&#39;J.K Ackerman&quot;]
 
+[if chosenOne === &quot;&#39;J.K Ackerman&quot;]
 [JavaScript]
 engine.state.set(&#39;hackingMod&#39;, -2);
 engine.state.set(&#39;socialMod&#39;, 0);
 engine.state.set(&#39;infilMod&#39;, -2);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod);
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
+
+
 [continue]
 
 [if chosenOne === &quot;Tim Stew&quot;]
@@ -834,7 +904,20 @@ engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod)
 engine.state.set(&#39;hackingMod&#39;, +3);
 engine.state.set(&#39;socialMod&#39;,+1);
 engine.state.set(&#39;infilMod&#39;, -3);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod);
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Social&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+socialMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
+
 [continue]
 
 [if chosenOne === &quot;Griff Simmons&quot;]
@@ -842,7 +925,20 @@ engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod)
 engine.state.set(&#39;hackingMod&#39;, +1);
 engine.state.set(&#39;socialMod&#39;,+5);
 engine.state.set(&#39;infilMod&#39;, +3);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod);
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Social&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+socialMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
+
 [continue]
 
 [if chosenOne === &quot;Zoe Payne&quot;]
@@ -850,12 +946,25 @@ engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod)
 engine.state.set(&#39;hackingMod&#39;, +5);
 engine.state.set(&#39;socialMod&#39;,+4);
 engine.state.set(&#39;infilMod&#39;, -3);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod);
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Social&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+socialMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
+
 [continue]
 
 [after 1 second]
 You have chosen {chosenOne} to perform the feat of {action}
-which is a {actionDifficulty} level cybersecurity problem of type {actionType} which requires a roll more than {difficultyCheck} to succeed.
+which is a {actionDifficulty} level cybersecurity problem of type {actionType} which requires a roll more than or equal to {difficultyCheck} to succeed.
 
 You have the modifers of {hackingMod} Hacking, a  {socialMod} social modifer and a {infilMod} infiltration bonus. These are all included within the hack attempt. 
 [continued]
@@ -864,7 +973,7 @@ You have the modifers of {hackingMod} Hacking, a  {socialMod} social modifer and
 Your elected hacker {chosenOne} attempts {action}
 [continued]
 
-[if calcAttempt&gt;difficultyCheck]
+[if calcAttempt&gt;=difficultyCheck]
 
 [after 4 second]
 
@@ -873,15 +982,15 @@ Your elected hacker {chosenOne} attempts {action}
 {embed image: &#39;succeed.jpg&#39;}
 
 ### You rolled a {calcAttempt} and you Succeeded in  {action}
-
-&gt;[[The Total Halibut collective Successfully Attacks]]
+&gt;[[The Total Halibut collective Successfully Attacks]] 
 
 [else]
 
 {sound effect: &#39;fail&#39;, volume: 0.6}
 {embed image: &#39;fail.jpg&#39;}
 ### You rolled a {calcAttempt} and Failed at  {action}
-&gt;[[The Total Halibut collective Fails in their Attack]]
+
+&gt;[[The Total Halibut collective Fails in their Attack]] 
 
 [continued]
 
@@ -930,13 +1039,13 @@ You are detected by the security team who isolate you and arrest you.
 &gt;[[You were detected by the CyberSec team]]
 
 [continued]
-</tw-passagedata><tw-passagedata pid="22" name="Escape from the building" tags="" position="1350,425" size="100,100">### Your Hacking done. Here is how you did overall
+</tw-passagedata><tw-passagedata pid="22" name="Escape from the building" tags="" position="1225,475" size="100,100">### Your Hacking done. Here is how you did overall
 
 ### {points} Points
 
 #### Hack Again?
 
-&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="23" name="Modify Attack" tags="Collective" position="1700,1050" size="100,100">{sound effect: &#39;hum&#39;, volume: 0.2}
+&gt;[[CyberD&amp;D]] </tw-passagedata><tw-passagedata pid="23" name="Modify Attack" tags="Collective" position="1725,975" size="100,100">{sound effect: &#39;hum&#39;, volume: 0.2}
 {sound effect: &#39;keyboard&#39;, volume: 0.2}
 
 ### The Total Halibut Collective Attacking Blue Team
@@ -1244,7 +1353,7 @@ engine.state.set(&#39;difficultyCheck&#39;, 16);
 
 [if actionDifficulty === 5]
 [JavaScript]
-engine.state.set(&#39;difficultyCheck&#39;, 20);
+engine.state.set(&#39;difficultyCheck&#39;, 18);
 [continue]
 [continue]
 
@@ -1299,7 +1408,20 @@ engine.state.set(&#39;randomAttack&#39;, &#39;DDOS Attack&#39;);
 engine.state.set(&#39;hackingMod&#39;, 3);
 engine.state.set(&#39;socialMod&#39;, 0);
 engine.state.set(&#39;infilMod&#39;,2);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod);
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Social&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+socialMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
+
 [continue]
 
 [continue]
@@ -1310,7 +1432,20 @@ engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod)
 engine.state.set(&#39;hackingMod&#39;, 2);
 engine.state.set(&#39;socialMod&#39;, -1);
 engine.state.set(&#39;infilMod&#39;,2);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod); 
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Social&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+socialMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
+
 [continue]
 
 [continue]
@@ -1321,7 +1456,20 @@ engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod)
 engine.state.set(&#39;hackingMod&#39;, 2);
 engine.state.set(&#39;socialMod&#39;, -2);
 engine.state.set(&#39;infilMod&#39;, 4);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod); 
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Social&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+socialMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
+
 [continue]
 
 [continue]
@@ -1332,21 +1480,33 @@ engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod)
 engine.state.set(&#39;hackingMod&#39;, 0);
 engine.state.set(&#39;socialMod&#39;, 0);
 engine.state.set(&#39;infilMod&#39;, 5);
-engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod+socialMod+infilMod); 
+
+if (actionType===&quot;Hacking&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+hackingMod);
+}
+else if (actionType===&quot;Social&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+socialMod);
+}
+else if (actionType===&quot;Infiltration&quot;){
+engine.state.set(&#39;calcAttempt&#39;,random.d20+infilMod);
+}
+else{
+engine.state.set(&#39;calcAttempt&#39;,random.d20);
+}
 [continue]
 
 [continue]
 
 
 You have chosen {chosenOne} to perform the defence of {randomAttack}
-which is a {actionDifficulty} level cybersecurity attack of type {actionType} which requires a roll more than {difficultyCheck} to succeed.
+which is a {actionDifficulty} level cybersecurity attack of type {actionType} which requires a roll more than or equal to {difficultyCheck} to succeed.
 
 You have the modifers of {hackingMod} Hacking, a {socialMod} social modifer and a {infilMod} infiltration bonus. These are all included within the hack attempt. 
 
 Your elected cybersecurity professional {chosenOne} attempts to defemd against the {randomAttack}
 
 
-[if calcAttempt&gt;difficultyCheck]
+[if calcAttempt&gt;=difficultyCheck]
 
 {sound effect: &#39;success&#39;, volume: 0.8}
 
